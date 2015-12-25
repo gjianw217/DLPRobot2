@@ -1,0 +1,1 @@
+#ifndef DLP_DEVICES_RHEOSTAT_RHEOSTAT_H_#define DLP_DEVICES_RHEOSTAT_RHEOSTAT_H_class CRheostat{public:    CRheostat();    ~CRheostat();private:    CI2C m_i2c;};#endif // DLP_DEVICES_RHEOSTAT_RHEOSTAT_H_

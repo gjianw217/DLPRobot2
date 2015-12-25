@@ -26,3 +26,10 @@
 *.exe
 *.out
 *.app
+
+# temp file
+*.*~
+/bin/
+/library/
+/IDE/CodeBlock1312/bin/
+/IDE/CodeBlock1312/obj/

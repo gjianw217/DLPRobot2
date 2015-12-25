@@ -1,0 +1,22 @@
+###########################################
+# demo/client Makefile
+#                            By Guo Jianwei
+#                                2015-10-12
+#                  EMAIL: gjianw217@163.com
+###########################################
+OBJ1=modbus-client.c
+TARTGET1=../../bin/ModbusClient
+
+INC=-I../../library/include
+LIB=-L/usr/local/lib
+
+CC=gcc
+CFLAGS+=-DDLP_DEBUG -DLP_LINUX 
+CFLAGS += -O2 -g -Wall
+CLFLAGS = -lmodbus
+
+all:$(TARGET1)
+$(TARGET1):
+	$(CC) -o $(TARGET1) $(OBJ1) $(CFLAGS) $(CLFLAGS) $(INC) $(LIB) 
+clean:
+	rm -rf $(TARGET1)

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="DLPRobotPTZ2" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/DLPRobotPTZ2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="/usr/local/lib/libboost_atomic.so" />
+					<Add library="/usr/local/lib/libboost_chrono.so" />
+					<Add library="/usr/local/lib/libboost_regex.so" />
+					<Add library="/usr/local/lib/libboost_system.so" />
+					<Add library="/usr/local/lib/libboost_thread.so" />
+					<Add library="/usr/local/lib/libboost_timer.so" />
+					<Add directory="/usr/local/lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/DLPRobotPTZ2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-DDLP_DEBUG" />
+			<Add option="-DDLP_LINUX" />
+		</Compiler>
+		<Unit filename="../../demo/devices/motors.cpp" />
+		<Unit filename="../../demo/robot/modbus-sys.cpp" />
+		<Unit filename="../../devices/encoder/ccancoder.cpp" />
+		<Unit filename="../../devices/encoder/ccancoder.h" />
+		<Unit filename="../../devices/encoder/crs485coder.cpp" />
+		<Unit filename="../../devices/encoder/crs485coder.h" />
+		<Unit filename="../../devices/encoder/csensorcounter.cpp" />
+		<Unit filename="../../devices/encoder/csensorcounter.h" />
+		<Unit filename="../../devices/encoder/iencoder.cpp" />
+		<Unit filename="../../devices/encoder/iencoder.h" />
+		<Unit filename="../../devices/motors/algorithm/clcurve.cpp" />
+		<Unit filename="../../devices/motors/algorithm/clcurve.h" />
+		<Unit filename="../../devices/motors/algorithm/crotation360.cpp" />
+		<Unit filename="../../devices/motors/algorithm/crotation360.h" />
+		<Unit filename="../../devices/motors/algorithm/crotation720.cpp" />
+		<Unit filename="../../devices/motors/algorithm/crotation720.h" />
+		<Unit filename="../../devices/motors/algorithm/crotationany.cpp" />
+		<Unit filename="../../devices/motors/algorithm/crotationany.h" />
+		<Unit filename="../../devices/motors/algorithm/cscurve.cpp" />
+		<Unit filename="../../devices/motors/algorithm/cscurve.h" />
+		<Unit filename="../../devices/motors/algorithm/ctcurve.cpp" />
+		<Unit filename="../../devices/motors/algorithm/ctcurve.h" />
+		<Unit filename="../../devices/motors/algorithm/ctestcurve.cpp" />
+		<Unit filename="../../devices/motors/algorithm/ctestcurve.h" />
+		<Unit filename="../../devices/motors/algorithm/ctestrotation.cpp" />
+		<Unit filename="../../devices/motors/algorithm/ctestrotation.h" />
+		<Unit filename="../../devices/motors/algorithm/icurve.cpp" />
+		<Unit filename="../../devices/motors/algorithm/icurve.h" />
+		<Unit filename="../../devices/motors/algorithm/irotation.cpp" />
+		<Unit filename="../../devices/motors/algorithm/irotation.h" />
+		<Unit filename="../../devices/motors/algorithm/pwmbase.h" />
+		<Unit filename="../../devices/motors/calgorithm.cpp" />
+		<Unit filename="../../devices/motors/calgorithm.h" />
+		<Unit filename="../../devices/motors/cdirection.cpp" />
+		<Unit filename="../../devices/motors/cdirection.h" />
+		<Unit filename="../../devices/motors/correction/camend.cpp" />
+		<Unit filename="../../devices/motors/correction/camend.h" />
+		<Unit filename="../../devices/motors/correction/cpwmfeedbackcontrol.cpp" />
+		<Unit filename="../../devices/motors/correction/pwmfeedbackcontrol.h" />
+		<Unit filename="../../devices/motors/cstepmotor.cpp" />
+		<Unit filename="../../devices/motors/cstepmotor.h" />
+		<Unit filename="../../devices/motors/imotor.cpp" />
+		<Unit filename="../../devices/motors/imotor.h" />
+		<Unit filename="../../devices/rheostat/rheostat.cpp" />
+		<Unit filename="../../devices/rheostat/rheostat.h" />
+		<Unit filename="../../devices/switch/cproximityswitch.cpp" />
+		<Unit filename="../../devices/switch/cproximityswitch.h" />
+		<Unit filename="../../dlp/dlp.h" />
+		<Unit filename="../../dlp/dlpalgorithm.h" />
+		<Unit filename="../../dlp/dlpboost.h" />
+		<Unit filename="../../dlp/dlpcommand.h" />
+		<Unit filename="../../dlp/dlpdevices.h" />
+		<Unit filename="../../dlp/dlpenum.h" />
+		<Unit filename="../../dlp/dlpmacro.h" />
+		<Unit filename="../../dlp/dlpplatform.h" />
+		<Unit filename="../../dlp/dlprobot.h" />
+		<Unit filename="../../dlp/dlpudp.h" />
+		<Unit filename="../../drivers/ccan.cpp" />
+		<Unit filename="../../drivers/ccan.h" />
+		<Unit filename="../../drivers/cgpio.cpp" />
+		<Unit filename="../../drivers/cgpio.h" />
+		<Unit filename="../../drivers/ci2c.cpp" />
+		<Unit filename="../../drivers/ci2c.h" />
+		<Unit filename="../../drivers/cpru.cpp" />
+		<Unit filename="../../drivers/cpru.h" />
+		<Unit filename="../../drivers/cpwm.cpp" />
+		<Unit filename="../../drivers/cpwm.h" />
+		<Unit filename="../../drivers/cserial.cpp" />
+		<Unit filename="../../drivers/cserial.h" />
+		<Unit filename="../../drivers/cserialboost.cpp" />
+		<Unit filename="../../drivers/cserialboost.h" />
+		<Unit filename="../../drivers/iserial.cpp" />
+		<Unit filename="../../drivers/iserial.h" />
+		<Unit filename="../../drivers/prussdrv/__prussdrv.h" />
+		<Unit filename="../../drivers/prussdrv/pruss_intc_mapping.h" />
+		<Unit filename="../../drivers/prussdrv/prussdrv.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../drivers/prussdrv/prussdrv.h" />
+		<Unit filename="../../main.cpp" />
+		<Unit filename="../../network/ccontrol.cpp" />
+		<Unit filename="../../network/ccontrol.h" />
+		<Unit filename="../../network/cdata-mapping.cpp" />
+		<Unit filename="../../network/cdata-mapping.h" />
+		<Unit filename="../../network/cmodbus.cpp" />
+		<Unit filename="../../network/cmodbus.h" />
+		<Unit filename="../../network/cnetwork.cpp" />
+		<Unit filename="../../network/cnetwork.h" />
+		<Unit filename="../../network/cparse.cpp" />
+		<Unit filename="../../network/cparse.h" />
+		<Unit filename="../../network/cselect.cpp" />
+		<Unit filename="../../network/cselect.h" />
+		<Unit filename="../../network/modbus/modbus-data.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../network/modbus/modbus-private.h" />
+		<Unit filename="../../network/modbus/modbus-tcp-private.h" />
+		<Unit filename="../../network/modbus/modbus-tcp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../network/modbus/modbus-tcp.h" />
+		<Unit filename="../../network/modbus/modbus-version.h" />
+		<Unit filename="../../network/modbus/modbus.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../network/modbus/modbus.h" />
+		<Unit filename="../../parts/cfocuspart.cpp" />
+		<Unit filename="../../parts/cfocuspart.h" />
+		<Unit filename="../../parts/cpanpart.cpp" />
+		<Unit filename="../../parts/cpanpart.h" />
+		<Unit filename="../../parts/ctiltpart.cpp" />
+		<Unit filename="../../parts/ctiltpart.h" />
+		<Unit filename="../../parts/czoompart.cpp" />
+		<Unit filename="../../parts/czoompart.h" />
+		<Unit filename="../../parts/iparts.cpp" />
+		<Unit filename="../../parts/iparts.h" />
+		<Unit filename="../../robot/camendpulse.cpp" />
+		<Unit filename="../../robot/camendpulse.h" />
+		<Unit filename="../../robot/cconfig.cpp" />
+		<Unit filename="../../robot/cconfig.h" />
+		<Unit filename="../../robot/cdevpulses.cpp" />
+		<Unit filename="../../robot/cdevpulses.h" />
+		<Unit filename="../../robot/cmanagepulse.cpp" />
+		<Unit filename="../../robot/cmanagepulse.h" />
+		<Unit filename="../../robot/crobot.cpp" />
+		<Unit filename="../../robot/crobot.h" />
+		<Unit filename="../../robot/csyspulses.cpp" />
+		<Unit filename="../../robot/csyspulses.h" />
+		<Unit filename="../../robot/csystem.cpp" />
+		<Unit filename="../../robot/csystem.h" />
+		<Unit filename="../../robot/rapidxml/rapidxml.hpp" />
+		<Unit filename="../../robot/rapidxml/rapidxml_iterators.hpp" />
+		<Unit filename="../../robot/rapidxml/rapidxml_print.hpp" />
+		<Unit filename="../../robot/rapidxml/rapidxml_utils.hpp" />
+		<Unit filename="../../task/cfocustask.cpp" />
+		<Unit filename="../../task/cfocustask.h" />
+		<Unit filename="../../task/cpantask.cpp" />
+		<Unit filename="../../task/cpantask.h" />
+		<Unit filename="../../task/csystask.cpp" />
+		<Unit filename="../../task/csystask.h" />
+		<Unit filename="../../task/ctilttask.cpp" />
+		<Unit filename="../../task/ctilttask.h" />
+		<Unit filename="../../task/czoomtask.cpp" />
+		<Unit filename="../../task/czoomtask.h" />
+		<Unit filename="../../task/itask.cpp" />
+		<Unit filename="../../task/itask.h" />
+		<Unit filename="../../task/local/cccd.cpp" />
+		<Unit filename="../../task/local/cccd.h" />
+		<Unit filename="../../task/local/crefresh.cpp" />
+		<Unit filename="../../task/local/crefresh.h" />
+		<Unit filename="../../utils/casynchrtimer.cpp" />
+		<Unit filename="../../utils/casynchrtimer.h" />
+		<Unit filename="../../utils/casynctimer.cpp" />
+		<Unit filename="../../utils/casynctimer.h" />
+		<Unit filename="../../utils/cconverter.cpp" />
+		<Unit filename="../../utils/cconverter.h" />
+		<Unit filename="../../utils/cdebug.cpp" />
+		<Unit filename="../../utils/cdebug.h" />
+		<Unit filename="../../utils/cdelay.cpp" />
+		<Unit filename="../../utils/cdelay.h" />
+		<Unit filename="../../utils/cprintattr.cpp" />
+		<Unit filename="../../utils/cprintattr.h" />
+		<Unit filename="../../utils/ctaskthread.cpp" />
+		<Unit filename="../../utils/ctaskthread.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
