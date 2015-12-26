@@ -13,15 +13,582 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\demo">
+      <UniqueIdentifier>{a3cc7521-1925-4a86-8c8b-b4a8b14ffc70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\demo">
+      <UniqueIdentifier>{8e48829b-0ce4-4682-8da9-78e070e07e63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices">
+      <UniqueIdentifier>{8c3ba784-3bb2-4df2-9e1e-8e98153cc6b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\devices">
+      <UniqueIdentifier>{acbf5396-6e4f-48e2-b27d-e45c42958222}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dlp">
+      <UniqueIdentifier>{6367c537-d57a-4235-afbf-85f01e82143b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\drivers">
+      <UniqueIdentifier>{dfcabe43-cf07-42ff-8d04-a482b9640cf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\drivers">
+      <UniqueIdentifier>{19cec025-ef54-4d15-82be-256f273c8991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network">
+      <UniqueIdentifier>{8e923bd1-cdc1-413d-a911-c7e7a49af402}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\network">
+      <UniqueIdentifier>{872978fb-84dc-45ab-ae43-96fc57469800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\uitls">
+      <UniqueIdentifier>{4ce5432f-8ad8-498f-be54-6cfb643b2450}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\uitls">
+      <UniqueIdentifier>{521041ef-ad93-491b-a323-1c574c443e6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\udp">
+      <UniqueIdentifier>{3c44fdde-565b-4945-a741-dfa3bd94c8ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\udp">
+      <UniqueIdentifier>{9f4ece37-52be-4694-9c8b-efab88ff883f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\task">
+      <UniqueIdentifier>{be099ee7-6bd4-4d85-929c-977e112762f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\task">
+      <UniqueIdentifier>{2f45df4d-7874-4f04-b53e-75d08c5851b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\robot">
+      <UniqueIdentifier>{49ca248b-f10c-4fc7-8775-190cbf42d8d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\robot">
+      <UniqueIdentifier>{df1e979b-8464-42ac-b8af-3f5676a5db29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\parts">
+      <UniqueIdentifier>{fe26f81f-f3de-4e74-badc-be34c7bee5be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\parts">
+      <UniqueIdentifier>{bf9a5848-40fd-4018-83b2-4b800fa56b5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\task\local">
+      <UniqueIdentifier>{c65239d7-d57f-423a-a0bf-47ab4c0e8da2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\task\local">
+      <UniqueIdentifier>{c75ac5b4-4e3a-4d65-9a1e-c2be6fc2bf33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\robot\rapidxml">
+      <UniqueIdentifier>{b7a89292-6fb4-406e-93f4-fcb468bf6cf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\modbus">
+      <UniqueIdentifier>{db811b2c-cb53-4b77-831b-343ad594d2a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\network\modbus">
+      <UniqueIdentifier>{816f6b60-10a1-4eb2-a6e5-bf0eb880a4cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\drivers\prussdrv">
+      <UniqueIdentifier>{bd4080b1-e9d4-44f6-af8a-a2ff938f6f47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\drivers\prussdrv">
+      <UniqueIdentifier>{5c86c851-1ddf-4cfc-a98c-5c3e103da356}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\devices\encoder">
+      <UniqueIdentifier>{917f6efd-68d2-4ad8-84da-bb59b9fc690d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\devices\motors">
+      <UniqueIdentifier>{836ef994-3c21-41ff-8aa6-aaa8200f9c4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\devices\rheostat">
+      <UniqueIdentifier>{8bd81d43-ac6c-443c-9b75-1f7e74d4f45f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\devices\switch">
+      <UniqueIdentifier>{5c0a1ed1-1f11-4f75-8586-c14dc1397bb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\devices\motors\algorithm">
+      <UniqueIdentifier>{0f2c3bd7-6bbc-4562-971f-a9e2b3b27c1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices\encoder">
+      <UniqueIdentifier>{611b8497-6034-4222-99c3-749a0ff7b44a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices\motors">
+      <UniqueIdentifier>{296b9b8c-3d71-4cd4-827f-5c2ecf90af8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices\motors\algorithm">
+      <UniqueIdentifier>{359c1723-3b60-49f7-a7a3-c0307662bbc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices\switch">
+      <UniqueIdentifier>{f88544be-577b-4717-9a35-9c2a335f6910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\devices\rheostat">
+      <UniqueIdentifier>{f7e97aca-7a4e-4e6e-bec4-92766a82b947}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\demo\robot\modbus-sys.cpp">
+      <Filter>Header Files\demo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\casynctimer.cpp">
+      <Filter>Source Files\uitls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\cconverter.cpp">
+      <Filter>Source Files\uitls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\cdebug.cpp">
+      <Filter>Source Files\uitls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\cdelay.cpp">
+      <Filter>Source Files\uitls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\cprintattr.cpp">
+      <Filter>Source Files\uitls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\ctaskthread.cpp">
+      <Filter>Source Files\uitls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\casynchrtimer.cpp">
+      <Filter>Source Files\uitls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\task\cfocustask.cpp">
+      <Filter>Source Files\task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\task\cpantask.cpp">
+      <Filter>Source Files\task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\task\csystask.cpp">
+      <Filter>Source Files\task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\task\ctilttask.cpp">
+      <Filter>Source Files\task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\task\czoomtask.cpp">
+      <Filter>Source Files\task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\task\itask.cpp">
+      <Filter>Source Files\task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\task\local\crefresh.cpp">
+      <Filter>Source Files\task\local</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\task\local\cccd.cpp">
+      <Filter>Source Files\task\local</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\robot\camendpulse.cpp">
+      <Filter>Source Files\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\robot\cconfig.cpp">
+      <Filter>Source Files\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\robot\cdevpulses.cpp">
+      <Filter>Source Files\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\robot\cmanagepulse.cpp">
+      <Filter>Source Files\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\robot\crobot.cpp">
+      <Filter>Source Files\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\robot\csyspulses.cpp">
+      <Filter>Source Files\robot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\robot\csystem.cpp">
+      <Filter>Source Files\parts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\parts\cfocuspart.cpp">
+      <Filter>Source Files\parts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\parts\cpanpart.cpp">
+      <Filter>Source Files\parts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\parts\ctiltpart.cpp">
+      <Filter>Source Files\parts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\parts\czoompart.cpp">
+      <Filter>Source Files\parts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\parts\iparts.cpp">
+      <Filter>Source Files\parts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\network\ccontrol.cpp">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\network\cdata-mapping.cpp">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\network\cmodbus.cpp">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\network\cnetwork.cpp">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\network\cparse.cpp">
+      <Filter>Source Files\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\network\cselect.cpp">
+      <Filter>Source Files\network\modbus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\network\modbus\modbus.c">
+      <Filter>Source Files\network\modbus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\network\modbus\modbus-data.c">
+      <Filter>Source Files\network\modbus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\network\modbus\modbus-tcp.c">
+      <Filter>Source Files\network\modbus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\drivers\ccan.cpp">
+      <Filter>Source Files\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\drivers\cgpio.cpp">
+      <Filter>Source Files\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\drivers\ci2c.cpp">
+      <Filter>Source Files\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\drivers\cpru.cpp">
+      <Filter>Source Files\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\drivers\cpwm.cpp">
+      <Filter>Source Files\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\drivers\cserial.cpp">
+      <Filter>Source Files\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\drivers\cserialboost.cpp">
+      <Filter>Source Files\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\drivers\iserial.cpp">
+      <Filter>Source Files\drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\drivers\prussdrv\prussdrv.c">
+      <Filter>Source Files\drivers\prussdrv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\rheostat\rheostat.cpp">
+      <Filter>Source Files\devices\rheostat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\switch\cproximityswitch.cpp">
+      <Filter>Source Files\devices\switch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\calgorithm.cpp">
+      <Filter>Source Files\devices\motors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\cdirection.cpp">
+      <Filter>Source Files\devices\motors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\cstepmotor.cpp">
+      <Filter>Source Files\devices\motors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\cstepmotorbypru.cpp">
+      <Filter>Source Files\devices\motors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\cstepmotorbypwm.cpp">
+      <Filter>Source Files\devices\motors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\imotor.cpp">
+      <Filter>Source Files\devices\motors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\algorithm\clcurve.cpp">
+      <Filter>Source Files\devices\motors\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\algorithm\crotation360.cpp">
+      <Filter>Source Files\devices\motors\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\algorithm\crotation720.cpp">
+      <Filter>Source Files\devices\motors\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\algorithm\crotationany.cpp">
+      <Filter>Source Files\devices\motors\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\algorithm\cscurve.cpp">
+      <Filter>Source Files\devices\motors\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\algorithm\ctcurve.cpp">
+      <Filter>Source Files\devices\motors\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\algorithm\ctestcurve.cpp">
+      <Filter>Source Files\devices\motors\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\algorithm\ctestrotation.cpp">
+      <Filter>Source Files\devices\motors\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\algorithm\icurve.cpp">
+      <Filter>Source Files\devices\motors\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\motors\algorithm\irotation.cpp">
+      <Filter>Source Files\devices\motors\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\encoder\ccancoder.cpp">
+      <Filter>Source Files\devices\encoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\encoder\crs485coder.cpp">
+      <Filter>Source Files\devices\encoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\encoder\csensorcounter.cpp">
+      <Filter>Source Files\devices\encoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devices\encoder\iencoder.cpp">
+      <Filter>Source Files\devices\encoder</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\dlp-debug.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\devices\encoder\ccancoder.h">
+      <Filter>Header Files\devices\encoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\encoder\crs485coder.h">
+      <Filter>Header Files\devices\encoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\encoder\csensorcounter.h">
+      <Filter>Header Files\devices\encoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\encoder\iencoder.h">
+      <Filter>Header Files\devices\encoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\calgorithm.h">
+      <Filter>Header Files\devices\motors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\cdirection.h">
+      <Filter>Header Files\devices\motors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\cstepmotor.h">
+      <Filter>Header Files\devices\motors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\cstepmotorbypru.h">
+      <Filter>Header Files\devices\motors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\cstepmotorbypwm.h">
+      <Filter>Header Files\devices\motors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\imotor.h">
+      <Filter>Header Files\devices\motors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\algorithm\clcurve.h">
+      <Filter>Header Files\devices\motors\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\algorithm\crotation360.h">
+      <Filter>Header Files\devices\motors\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\algorithm\crotation720.h">
+      <Filter>Header Files\devices\motors\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\algorithm\crotationany.h">
+      <Filter>Header Files\devices\motors\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\algorithm\cscurve.h">
+      <Filter>Header Files\devices\motors\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\algorithm\ctcurve.h">
+      <Filter>Header Files\devices\motors\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\algorithm\ctestcurve.h">
+      <Filter>Header Files\devices\motors\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\algorithm\ctestrotation.h">
+      <Filter>Header Files\devices\motors\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\algorithm\icurve.h">
+      <Filter>Header Files\devices\motors\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\algorithm\irotation.h">
+      <Filter>Header Files\devices\motors\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\motors\algorithm\pwmbase.h">
+      <Filter>Header Files\devices\motors\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\switch\cproximityswitch.h">
+      <Filter>Header Files\devices\switch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devices\rheostat\rheostat.h">
+      <Filter>Header Files\devices\rheostat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlp\dlp.h">
+      <Filter>Header Files\dlp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlp\dlpalgorithm.h">
+      <Filter>Header Files\dlp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlp\dlpboost.h">
+      <Filter>Header Files\dlp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlp\dlpcommand.h">
+      <Filter>Header Files\dlp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlp\dlpdevices.h">
+      <Filter>Header Files\dlp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlp\dlpenum.h">
+      <Filter>Header Files\dlp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlp\dlpmacro.h">
+      <Filter>Header Files\dlp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlp\dlpplatform.h">
+      <Filter>Header Files\dlp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlp\dlprobot.h">
+      <Filter>Header Files\dlp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\dlp\dlpudp.h">
+      <Filter>Header Files\dlp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\drivers\ccan.h">
+      <Filter>Header Files\drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\drivers\cgpio.h">
+      <Filter>Header Files\drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\drivers\ci2c.h">
+      <Filter>Header Files\drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\drivers\cpru.h">
+      <Filter>Header Files\drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\drivers\cpwm.h">
+      <Filter>Header Files\drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\drivers\cserial.h">
+      <Filter>Header Files\drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\drivers\cserialboost.h">
+      <Filter>Header Files\drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\drivers\iserial.h">
+      <Filter>Header Files\drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\drivers\prussdrv\__prussdrv.h">
+      <Filter>Header Files\drivers\prussdrv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\drivers\prussdrv\pruss_intc_mapping.h">
+      <Filter>Header Files\drivers\prussdrv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\drivers\prussdrv\prussdrv.h">
+      <Filter>Header Files\drivers\prussdrv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\network\ccontrol.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\network\cdata-mapping.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\network\cmodbus.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\network\cnetwork.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\network\cparse.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\network\cselect.h">
+      <Filter>Header Files\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\network\modbus\modbus.h">
+      <Filter>Header Files\network\modbus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\network\modbus\modbus-private.h">
+      <Filter>Header Files\network\modbus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\network\modbus\modbus-tcp.h">
+      <Filter>Header Files\network\modbus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\network\modbus\modbus-tcp-private.h">
+      <Filter>Header Files\network\modbus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\network\modbus\modbus-version.h">
+      <Filter>Header Files\network\modbus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\parts\cfocuspart.h">
+      <Filter>Header Files\parts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\parts\cpanpart.h">
+      <Filter>Header Files\parts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\parts\ctiltpart.h">
+      <Filter>Header Files\parts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\parts\czoompart.h">
+      <Filter>Header Files\parts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\parts\iparts.h">
+      <Filter>Header Files\parts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\robot\camendpulse.h">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\robot\cconfig.h">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\robot\cdevpulses.h">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\robot\cmanagepulse.h">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\robot\crobot.h">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\robot\csyspulses.h">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\robot\csystem.h">
+      <Filter>Header Files\robot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\robot\rapidxml\rapidxml.hpp">
+      <Filter>Header Files\robot\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\robot\rapidxml\rapidxml_iterators.hpp">
+      <Filter>Header Files\robot\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\robot\rapidxml\rapidxml_print.hpp">
+      <Filter>Header Files\robot\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\robot\rapidxml\rapidxml_utils.hpp">
+      <Filter>Header Files\robot\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\task\cfocustask.h">
+      <Filter>Header Files\task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\task\cpantask.h">
+      <Filter>Header Files\task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\task\csystask.h">
+      <Filter>Header Files\task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\task\ctilttask.h">
+      <Filter>Header Files\task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\task\czoomtask.h">
+      <Filter>Header Files\task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\task\itask.h">
+      <Filter>Header Files\task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\task\local\cccd.h">
+      <Filter>Header Files\task\local</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\task\local\crefresh.h">
+      <Filter>Header Files\task\local</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\casynchrtimer.h">
+      <Filter>Header Files\uitls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\casynctimer.h">
+      <Filter>Header Files\uitls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\cconverter.h">
+      <Filter>Header Files\uitls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\cdebug.h">
+      <Filter>Header Files\uitls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\cdelay.h">
+      <Filter>Header Files\uitls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\cprintattr.h">
+      <Filter>Header Files\uitls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\utils\ctaskthread.h">
+      <Filter>Header Files\uitls</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

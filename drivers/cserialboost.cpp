@@ -32,6 +32,8 @@ int CSerialBoost::Open(const char *com)
 		std::cout<<"m_sp->open(com,m_ec)"<<m_ec.message()<<":"<<m_ec.value()<<std::endl;
 		m_sp=NULL;
 	}
+	
+	return 0;
 }
 
 void CSerialBoost::Config(const uint8_t &baudrate,const uint8_t &databit,const uint8_t &parity,const uint8_t &stopbit)

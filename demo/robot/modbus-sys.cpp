@@ -30,9 +30,9 @@ PCSystem  psystem(new CSystem());
 
 void SyncHandler(int signum)
 {
-    struct timeval start;
-    gettimeofday(&start,0);
-    printf("AF..%d..%d\n",start.tv_sec,start.tv_usec);
+    //struct timeval start;
+    //gettimeofday(&start,0);
+    //printf("AF..%d..%d\n",start.tv_sec,start.tv_usec);
 
     //collection the data  of the coders
     psystem->CollectSysData();
@@ -50,7 +50,9 @@ void SyncHandler(int signum)
 }
 void SyncStart()
 {
-    int flag,fd;
+#ifdef DLP_EXT_SYNC    
+	
+	int flag,fd;
     signal(SIGIO,SyncHandler);
 
     fd = open("/dev/gpiop923",O_RDWR);
@@ -62,9 +64,11 @@ void SyncStart()
     flag = fcntl(fd,F_GETFL);
     fcntl(fd,F_SETFL,flag | FASYNC);
     printf("Startup Sync\n");
-}
-#ifdef DLP_EXT_SYNC
+
 #endif // DLP_EXT_SYNC
+}
+
+
 /*******************************************/
 void TestServer()
 {
@@ -290,7 +294,7 @@ void TestServer2()
 	pnet->Init(5);
 	PCTaskThread pnet_thread(new CTaskThread());             /*<初始化线程模块*/
 	pnet_thread->SetTask(boost::bind(&CNetwork::Run,pnet)); /*<设置网络线程*/
-	delays(1); /*<很重要*/
+	delays(1); ///*<很重要*/
 	pnet_thread->SigTask();
 
 	while(1);

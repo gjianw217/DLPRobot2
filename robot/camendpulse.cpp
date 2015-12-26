@@ -99,7 +99,7 @@ int32_t CAmendPulse::GetAmendError(const uint32_t &theory_pulses,const uint32_t 
 */
 void CAmendPulse::GetAmendTime(const DLPMotorPulse &type,const int16_t &amend_error)
 {
-    uint32_t sum_time,amend_time;//////////////////////////////////////////////////////////
+    uint32_t sum_time=0,amend_time;//////////////////////////////////////////////////////////
     if(DLP_PULSE_PAN==type)
     {
         amend_time=sum_time-m_counter[DLP_PULSE_PAN]*20;
@@ -117,7 +117,7 @@ void CAmendPulse::GetAmendTime(const DLPMotorPulse &type,const int16_t &amend_er
 */
 void CAmendPulse::GetAmendAngle(const DLPMotorPulse &type,const int16_t &amend_error)
 {
-    uint32_t sum_angle,amend_angle;//////////////////////////////////////////////////////////
+    uint32_t sum_angle=0,amend_angle;//////////////////////////////////////////////////////////
     if(type>DLP_PULSE_NO&&type<DLP_PULSE_MAX)
     {
         amend_angle=sum_angle-m_counter[type]*20;

@@ -41,6 +41,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>$(SolutionDir)\..\..\library\lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\..\..\library\include\boost-1_55\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -51,7 +54,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;DLP_WINDOW;DLP_DEBUG;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -78,10 +81,163 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\demo\robot\modbus-sys.cpp" />
+    <ClCompile Include="..\..\devices\encoder\ccancoder.cpp" />
+    <ClCompile Include="..\..\devices\encoder\crs485coder.cpp" />
+    <ClCompile Include="..\..\devices\encoder\csensorcounter.cpp" />
+    <ClCompile Include="..\..\devices\encoder\iencoder.cpp" />
+    <ClCompile Include="..\..\devices\motors\algorithm\clcurve.cpp" />
+    <ClCompile Include="..\..\devices\motors\algorithm\crotation360.cpp" />
+    <ClCompile Include="..\..\devices\motors\algorithm\crotation720.cpp" />
+    <ClCompile Include="..\..\devices\motors\algorithm\crotationany.cpp" />
+    <ClCompile Include="..\..\devices\motors\algorithm\cscurve.cpp" />
+    <ClCompile Include="..\..\devices\motors\algorithm\ctcurve.cpp" />
+    <ClCompile Include="..\..\devices\motors\algorithm\ctestcurve.cpp" />
+    <ClCompile Include="..\..\devices\motors\algorithm\ctestrotation.cpp" />
+    <ClCompile Include="..\..\devices\motors\algorithm\icurve.cpp" />
+    <ClCompile Include="..\..\devices\motors\algorithm\irotation.cpp" />
+    <ClCompile Include="..\..\devices\motors\calgorithm.cpp" />
+    <ClCompile Include="..\..\devices\motors\cdirection.cpp" />
+    <ClCompile Include="..\..\devices\motors\cstepmotor.cpp" />
+    <ClCompile Include="..\..\devices\motors\cstepmotorbypru.cpp" />
+    <ClCompile Include="..\..\devices\motors\cstepmotorbypwm.cpp" />
+    <ClCompile Include="..\..\devices\motors\imotor.cpp" />
+    <ClCompile Include="..\..\devices\rheostat\rheostat.cpp" />
+    <ClCompile Include="..\..\devices\switch\cproximityswitch.cpp" />
+    <ClCompile Include="..\..\drivers\ccan.cpp" />
+    <ClCompile Include="..\..\drivers\cgpio.cpp" />
+    <ClCompile Include="..\..\drivers\ci2c.cpp" />
+    <ClCompile Include="..\..\drivers\cpru.cpp" />
+    <ClCompile Include="..\..\drivers\cpwm.cpp" />
+    <ClCompile Include="..\..\drivers\cserial.cpp" />
+    <ClCompile Include="..\..\drivers\cserialboost.cpp" />
+    <ClCompile Include="..\..\drivers\iserial.cpp" />
+    <ClCompile Include="..\..\drivers\prussdrv\prussdrv.c" />
     <ClCompile Include="..\..\main.cpp" />
+    <ClCompile Include="..\..\network\ccontrol.cpp" />
+    <ClCompile Include="..\..\network\cdata-mapping.cpp" />
+    <ClCompile Include="..\..\network\cmodbus.cpp" />
+    <ClCompile Include="..\..\network\cnetwork.cpp" />
+    <ClCompile Include="..\..\network\cparse.cpp" />
+    <ClCompile Include="..\..\network\cselect.cpp" />
+    <ClCompile Include="..\..\network\modbus\modbus-data.c" />
+    <ClCompile Include="..\..\network\modbus\modbus-tcp.c" />
+    <ClCompile Include="..\..\network\modbus\modbus.c" />
+    <ClCompile Include="..\..\parts\cfocuspart.cpp" />
+    <ClCompile Include="..\..\parts\cpanpart.cpp" />
+    <ClCompile Include="..\..\parts\ctiltpart.cpp" />
+    <ClCompile Include="..\..\parts\czoompart.cpp" />
+    <ClCompile Include="..\..\parts\iparts.cpp" />
+    <ClCompile Include="..\..\robot\camendpulse.cpp" />
+    <ClCompile Include="..\..\robot\cconfig.cpp" />
+    <ClCompile Include="..\..\robot\cdevpulses.cpp" />
+    <ClCompile Include="..\..\robot\cmanagepulse.cpp" />
+    <ClCompile Include="..\..\robot\crobot.cpp" />
+    <ClCompile Include="..\..\robot\csyspulses.cpp" />
+    <ClCompile Include="..\..\robot\csystem.cpp" />
+    <ClCompile Include="..\..\task\cfocustask.cpp" />
+    <ClCompile Include="..\..\task\cpantask.cpp" />
+    <ClCompile Include="..\..\task\csystask.cpp" />
+    <ClCompile Include="..\..\task\ctilttask.cpp" />
+    <ClCompile Include="..\..\task\czoomtask.cpp" />
+    <ClCompile Include="..\..\task\itask.cpp" />
+    <ClCompile Include="..\..\task\local\cccd.cpp" />
+    <ClCompile Include="..\..\task\local\crefresh.cpp" />
+    <ClCompile Include="..\..\utils\casynchrtimer.cpp" />
+    <ClCompile Include="..\..\utils\casynctimer.cpp" />
+    <ClCompile Include="..\..\utils\cconverter.cpp" />
+    <ClCompile Include="..\..\utils\cdebug.cpp" />
+    <ClCompile Include="..\..\utils\cdelay.cpp" />
+    <ClCompile Include="..\..\utils\cprintattr.cpp" />
+    <ClCompile Include="..\..\utils\ctaskthread.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\dlp-debug.h" />
+    <ClInclude Include="..\..\devices\encoder\ccancoder.h" />
+    <ClInclude Include="..\..\devices\encoder\crs485coder.h" />
+    <ClInclude Include="..\..\devices\encoder\csensorcounter.h" />
+    <ClInclude Include="..\..\devices\encoder\iencoder.h" />
+    <ClInclude Include="..\..\devices\motors\algorithm\clcurve.h" />
+    <ClInclude Include="..\..\devices\motors\algorithm\crotation360.h" />
+    <ClInclude Include="..\..\devices\motors\algorithm\crotation720.h" />
+    <ClInclude Include="..\..\devices\motors\algorithm\crotationany.h" />
+    <ClInclude Include="..\..\devices\motors\algorithm\cscurve.h" />
+    <ClInclude Include="..\..\devices\motors\algorithm\ctcurve.h" />
+    <ClInclude Include="..\..\devices\motors\algorithm\ctestcurve.h" />
+    <ClInclude Include="..\..\devices\motors\algorithm\ctestrotation.h" />
+    <ClInclude Include="..\..\devices\motors\algorithm\icurve.h" />
+    <ClInclude Include="..\..\devices\motors\algorithm\irotation.h" />
+    <ClInclude Include="..\..\devices\motors\algorithm\pwmbase.h" />
+    <ClInclude Include="..\..\devices\motors\calgorithm.h" />
+    <ClInclude Include="..\..\devices\motors\cdirection.h" />
+    <ClInclude Include="..\..\devices\motors\cstepmotor.h" />
+    <ClInclude Include="..\..\devices\motors\cstepmotorbypru.h" />
+    <ClInclude Include="..\..\devices\motors\cstepmotorbypwm.h" />
+    <ClInclude Include="..\..\devices\motors\imotor.h" />
+    <ClInclude Include="..\..\devices\rheostat\rheostat.h" />
+    <ClInclude Include="..\..\devices\switch\cproximityswitch.h" />
+    <ClInclude Include="..\..\dlp\dlp.h" />
+    <ClInclude Include="..\..\dlp\dlpalgorithm.h" />
+    <ClInclude Include="..\..\dlp\dlpboost.h" />
+    <ClInclude Include="..\..\dlp\dlpcommand.h" />
+    <ClInclude Include="..\..\dlp\dlpdevices.h" />
+    <ClInclude Include="..\..\dlp\dlpenum.h" />
+    <ClInclude Include="..\..\dlp\dlpmacro.h" />
+    <ClInclude Include="..\..\dlp\dlpplatform.h" />
+    <ClInclude Include="..\..\dlp\dlprobot.h" />
+    <ClInclude Include="..\..\dlp\dlpudp.h" />
+    <ClInclude Include="..\..\drivers\ccan.h" />
+    <ClInclude Include="..\..\drivers\cgpio.h" />
+    <ClInclude Include="..\..\drivers\ci2c.h" />
+    <ClInclude Include="..\..\drivers\cpru.h" />
+    <ClInclude Include="..\..\drivers\cpwm.h" />
+    <ClInclude Include="..\..\drivers\cserial.h" />
+    <ClInclude Include="..\..\drivers\cserialboost.h" />
+    <ClInclude Include="..\..\drivers\iserial.h" />
+    <ClInclude Include="..\..\drivers\prussdrv\prussdrv.h" />
+    <ClInclude Include="..\..\drivers\prussdrv\pruss_intc_mapping.h" />
+    <ClInclude Include="..\..\drivers\prussdrv\__prussdrv.h" />
+    <ClInclude Include="..\..\network\ccontrol.h" />
+    <ClInclude Include="..\..\network\cdata-mapping.h" />
+    <ClInclude Include="..\..\network\cmodbus.h" />
+    <ClInclude Include="..\..\network\cnetwork.h" />
+    <ClInclude Include="..\..\network\cparse.h" />
+    <ClInclude Include="..\..\network\cselect.h" />
+    <ClInclude Include="..\..\network\modbus\modbus-private.h" />
+    <ClInclude Include="..\..\network\modbus\modbus-tcp-private.h" />
+    <ClInclude Include="..\..\network\modbus\modbus-tcp.h" />
+    <ClInclude Include="..\..\network\modbus\modbus-version.h" />
+    <ClInclude Include="..\..\network\modbus\modbus.h" />
+    <ClInclude Include="..\..\parts\cfocuspart.h" />
+    <ClInclude Include="..\..\parts\cpanpart.h" />
+    <ClInclude Include="..\..\parts\ctiltpart.h" />
+    <ClInclude Include="..\..\parts\czoompart.h" />
+    <ClInclude Include="..\..\parts\iparts.h" />
+    <ClInclude Include="..\..\robot\camendpulse.h" />
+    <ClInclude Include="..\..\robot\cconfig.h" />
+    <ClInclude Include="..\..\robot\cdevpulses.h" />
+    <ClInclude Include="..\..\robot\cmanagepulse.h" />
+    <ClInclude Include="..\..\robot\crobot.h" />
+    <ClInclude Include="..\..\robot\csyspulses.h" />
+    <ClInclude Include="..\..\robot\csystem.h" />
+    <ClInclude Include="..\..\robot\rapidxml\rapidxml.hpp" />
+    <ClInclude Include="..\..\robot\rapidxml\rapidxml_iterators.hpp" />
+    <ClInclude Include="..\..\robot\rapidxml\rapidxml_print.hpp" />
+    <ClInclude Include="..\..\robot\rapidxml\rapidxml_utils.hpp" />
+    <ClInclude Include="..\..\task\cfocustask.h" />
+    <ClInclude Include="..\..\task\cpantask.h" />
+    <ClInclude Include="..\..\task\csystask.h" />
+    <ClInclude Include="..\..\task\ctilttask.h" />
+    <ClInclude Include="..\..\task\czoomtask.h" />
+    <ClInclude Include="..\..\task\itask.h" />
+    <ClInclude Include="..\..\task\local\cccd.h" />
+    <ClInclude Include="..\..\task\local\crefresh.h" />
+    <ClInclude Include="..\..\utils\casynchrtimer.h" />
+    <ClInclude Include="..\..\utils\casynctimer.h" />
+    <ClInclude Include="..\..\utils\cconverter.h" />
+    <ClInclude Include="..\..\utils\cdebug.h" />
+    <ClInclude Include="..\..\utils\cdelay.h" />
+    <ClInclude Include="..\..\utils\cprintattr.h" />
+    <ClInclude Include="..\..\utils\ctaskthread.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

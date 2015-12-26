@@ -69,7 +69,7 @@ void CFocusPart::parseCoderAttr(DLPEncoderAttr &attr)
 
 void CFocusPart::parseMotorAttr(DLPMotorAttr &attr)
 {
-    uint16_t data[10]={0};
+    uint16_t data[16]={0};
     m_pdatamapping->GetHoldRegisters(FOCUSMOTOR,12,data);//FOCUSMOTOR==0xB00
 
     attr.dlp_algorithm.max_speed=data[0];

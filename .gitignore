@@ -7,7 +7,7 @@
 # Precompiled Headers
 *.gch
 *.pch
-
+*.sdf
 # Compiled Dynamic libraries
 *.so
 *.dylib
@@ -29,7 +29,10 @@
 
 # temp file
 *.*~
+*.xml
 /bin/
 /library/
 /IDE/CodeBlock1312/bin/
 /IDE/CodeBlock1312/obj/
+/IDE/VS2013/Debug/
+
