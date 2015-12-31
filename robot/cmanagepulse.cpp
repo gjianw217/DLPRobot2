@@ -46,7 +46,7 @@ int CManagePulse::CheckCurveConvert(const DLPMotorPulse &type)
 
 void CManagePulse::SetConvertDisable(const DLPMotorPulse &type)
 {
-    m_pulse[type].cmd_convert_curve_enable=0;
+    m_pulse[type].cmd_convert_curve_enable=false;
 }
 void CManagePulse::SetConvertEnable(const DLPMotorPulse &type)
 {
@@ -59,6 +59,8 @@ void CManagePulse::UpdateCurvePulse(const DLPMotorPulse &type,const uint8_t &len
 {
     m_pdev_pulses->WriteDevPulsesCurve(type,len,src);
     m_pulse[type].angle_pulse_frame_sum=len;
+    SetConvertDisable(type);
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
 uint8_t CManagePulse::CheckMotorPulse()
@@ -91,8 +93,9 @@ void CManagePulse::UpdatePulseGroup()
         if(++m_pulse[i].angle_pulse_frame_counter==m_pulse[i].angle_pulse_frame_sum)//whether restarting a movement command
         {
             m_pulse[i].angle_pulse_frame_counter=0;
-            m_pulse[i].cmd_convert_curve_enable=1;
+            m_pulse[i].cmd_convert_curve_enable=true;
         }
+
 
    }
 
@@ -102,7 +105,7 @@ void CManagePulse::RunPulseGoup()      //run the step motor
     m_psys_pulses->RunPulseGroups();
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////f
 int CManagePulse::IsAmend(const DLPMotorPulse &type,const float &coder_angle)
 {
     return m_pamend_pulses->IsAmend(type,coder_angle);
@@ -110,12 +113,19 @@ int CManagePulse::IsAmend(const DLPMotorPulse &type,const float &coder_angle)
 
 void CManagePulse::GetAmendParameter(const DLPMotorPulse &type,uint16_t *time_angle)
 {
-    m_pamend_pulses->AmendParameter(type,time_angle);
+    m_pamend_pulses->GetAmendParameter(type,time_angle);
 
 }
 
-void CManagePulse::SetMotrAttr(const DLPMotorPulse &type,const AmendAttr &attr)
+void CManagePulse::SetAmendParameter(const DLPMotorPulse &type,uint16_t *time_angle)
 {
-    m_pamend_pulses->SetMotrAttr(type,attr);
+    m_pamend_pulses->SetAmendParameter(type,time_angle);
 
 }
+
+void CManagePulse::SetMotrAttr(const DLPMotorPulse &type,const DLPMotorAttr &mattr,const DLPEncoderAttr &eattr)
+{
+    m_pamend_pulses->SetAmendAttr(type,mattr,eattr);
+
+}
+//////////////////////////////////////////////////////////

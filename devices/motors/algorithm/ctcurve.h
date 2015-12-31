@@ -8,7 +8,7 @@ public:
 	CTCurve();
 	~CTCurve();
 
-	int CreatePulseCurve(const double &angle,uint32_t *pwm);
+	int CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *pwm);
 protected:
 private:
 //	int CreateRefPWM(uint16_t *fre_per_step,uint16_t *num_per_step);
@@ -18,7 +18,7 @@ private:
     int CreateRefPulses(uint16_t *pulses);
     uint32_t Angle2Step(const float &value);
     int  ComputeFrames(const uint32_t &steps,const uint16_t &ref_sum,const uint16_t *ref_step,uint32_t *pulses);
-    int ComputeFrameswithTime(const float time,const float &angle,const uint16_t &ref_sum,const uint16_t *ref_step,uint32_t *pulses);
+    int ComputeFrameswithTime(uint32_t time,const float &angle,uint32_t *pulses);
     int CreatePulses(void);
 };
 #endif //DLP_DEVICES_MOTORS_ALGORITHM_CTCURVE_H_

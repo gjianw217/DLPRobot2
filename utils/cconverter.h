@@ -17,8 +17,8 @@ std::string pin2str(const uint16_t &pin_addr);
 
 
 #include "../dlp/dlpalgorithm.h"
-float division2angle(STEPMOTORDIVISION &division);
-uint8_t division2ratio(STEPMOTORDIVISION &division);
-STEPMOTORDIVISION ratio2division(uint8_t ratio);
+float division2angle(const STEPMOTORDIVISION division);
+uint8_t division2ratio(const STEPMOTORDIVISION division);
+STEPMOTORDIVISION ratio2division(const uint8_t ratio);
 
 #endif // DLP_UTILS_CONVERTER_H_

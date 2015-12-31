@@ -98,7 +98,7 @@ typedef struct
     int motor_speed;
     float coder_unit_angle;//The angle that the coder rotates a step
     float coder_unit_pulse;//the pusle that the coder rotates a coder_unit_angle
-}AmendAttr;
+}DLPAmendAttr;
 
 
 

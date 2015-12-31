@@ -83,7 +83,7 @@ void CSysTask::ExecTask()
 				{
                     std::cout<<exec_cmd.dev_func<<std::endl;
                      //m_psys->ConvertSysPulse();
-                     m_psys->AmendSysPulse();
+                    // m_psys->AmendSysPulse();
 					dlp_log(DLP_LOG_ERR,"CSysTask::MODBUS_COILS:NoCMD");
 				}
 			}//end switch

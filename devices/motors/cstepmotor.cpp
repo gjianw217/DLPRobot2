@@ -43,8 +43,9 @@ void CStepMotor::WriteCmd(DLPModbusCmd &cmd)
     this->m_curve_cmds.push_back(cmd);
     std::cout<<m_curve_cmds.size()<<std::endl;
 
-   // CmdConvertPulses();
+    //CmdConvertPulses();
 }
+
 void CStepMotor::CmdConvertPulses()
 {
 
@@ -56,17 +57,17 @@ void CStepMotor::CmdConvertPulses()
     dlp_log(DLP_LOG_ERR,"Without Setting the curve algorithm for the motor");
 
     DLPModbusCmd cmd;
-    uint32_t angle;
+    uint32_t time=0;
+    float angle=0.0;
 
     cmd = m_curve_cmds.at(m_curve_cmds.size() -1);
     this->m_curve_cmds.pop_front();
-    angle=cmd.cmd_data[2];
-    angle<<=16;
-    angle|=cmd.cmd_data[1];
+    angle=static_cast<float>(cmd.cmd_data[2]+cmd.cmd_data[1]*0.001);;
+    time=cmd.cmd_data[4]*1000+cmd.cmd_data[3];
 
-    std::cout<<angle<<std::endl;
+    std::cout<<"angle:"<<angle<<"time:"<<time<<std::endl;
 
-    m_pcurve->CreatePulseCurve(angle,m_pwm_array);
+    m_pcurve->CreatePulseCurve(time,angle,m_pwm_array);
 
 }
 int CStepMotor::ReadPulses(uint32_t *des)
@@ -88,7 +89,9 @@ void CStepMotor::SetCmdAmendPulses(uint16_t *pdata)
     DLPModbusCmd cmd;
     cmd.cmd_data[2]=pdata[2];
     cmd.cmd_data[1]=pdata[1];
-    this->m_curve_cmds.push_back(cmd);
+
+
+    this->m_curve_cmds.push_front(cmd);
 }
 
 /***********************************/
@@ -116,13 +119,16 @@ void CStepMotor::RunbyAngleTimeDir(const double &angle,const uint32_t &time,cons
 		m_ppru->Run(pwm);
 	}
 */
+
+
 /**/
      if(m_pcurve.use_count()==0)
     {
         dlp_log(DLP_LOG_ERR,"Without Setting the curve algorithm for the motor");
         return;
     }
-    m_pcurve->CreatePulseCurve(angle,m_pwm_array);
+
+    //m_pcurve->CreatePulseCurve(angle,m_pwm_array);
     std::cout<<"4444444444444444444444444"<<std::endl;
     ///motor start moving
     //m_ppru->Run(m_pwm_array);
@@ -184,7 +190,7 @@ void CStepMotor::RunbyAngle(const double &angle,const uint16_t &dir/* =0 */)
    // coder_angle=m_pcoder->GetCoderAngle();
     move_angle=m_protation->GetAnglebyAngle(dir,angle,coder_angle);
 	///computing rotation pulse(PWM)
-    m_pcurve->CreatePulseCurve(move_angle,m_pwm_array);
+    //m_pcurve->CreatePulseCurve(move_angle,m_pwm_array);
 	///confirmation the rotation direction
 	if (dir!=m_pdirection->GetDirValue())
 	{

@@ -9,7 +9,7 @@ public:
 	ICurve();
 	~ICurve();
 	void SetAttr(const DLPAlgorithmAttr &attr);
-	virtual int CreatePulseCurve(const double &angle,uint32_t *pwm)=0;
+	virtual int CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *pwm)=0;
 protected:
 	DLPAlgorithmAttr m_attr;
 private:

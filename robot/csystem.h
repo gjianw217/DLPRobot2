@@ -35,6 +35,7 @@ public:
 	void SelfCheck();
 
 	void Init();
+	void InitMotorAmendAttr();
 private:
     SMutex m_mutex;
 

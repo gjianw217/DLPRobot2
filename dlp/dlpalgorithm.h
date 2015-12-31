@@ -11,21 +11,21 @@
 /*Frequency division coefficient Table of Stepper motor driver (DM856)*/
 typedef enum {
 	one=0,
-	two,
-	four,
-	eight,
-	sixteen,
-	thirtytwo,
-	sixtyfour,
-	huntwneigth,
-	five,
-	ten,
-	twenty,
-	twentyfive,
-	forty,
-	fifty,
-	hundred,
-	huntwnfive
+	two=1,
+	four=2,
+	eight=3,
+	sixteen=4,
+	thirtytwo=5,
+	sixtyfour=6,
+	huntwneigth=7,
+	five=8,
+	ten=9,
+	twenty=10,
+	twentyfive=11,
+	forty=12,
+	fifty=13,
+	hundred=14,
+	huntwnfive=15
 }DM856DIVISION;
 
 #define  STEPMOTORDIVISION DM856DIVISION

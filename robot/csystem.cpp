@@ -57,6 +57,8 @@ void CSystem::Init()
 //
 //
 //
+
+    InitMotorAmendAttr();
 	}
 }
 void CSystem::CollectSysData()
@@ -223,17 +225,7 @@ int CSystem::AmendSysPulse()
         std::cout<<"20151225 SetCmdAmendPulses"<<std::endl;
         m_pmanage_pulse->SetConvertEnable(DLP_PULSE_PAN);
         std::cout<<"20151225 SetConvertEnable"<<std::endl;
-        m_ppan_motor->CmdConvertPulses();
-        std::cout<<"20151225 CmdConvertPulses"<<std::endl;
-        m_len=m_ppan_motor->ReadPulses(m_pulses);
-        std::cout<<"20151225 ReadPulses"<<std::endl;
-        m_pmanage_pulse->UpdateCurvePulse(DLP_PULSE_PAN,//curve type T=1
-                                        m_len,
-                                        m_pulses);
-        std::cout<<"20151225 UpdateCurvePulse"<<std::endl;
-        m_pmanage_pulse->SetConvertDisable(DLP_PULSE_PAN);
-        std::cout<<"20151225 SetConvertDisable"<<std::endl;
-
+        ConvertSysPulse();
 
     }
 
@@ -277,9 +269,6 @@ void CSystem::ConvertSysPulse()
                                         m_len,m_pulses);
         std::cout<<"UpdateCurvePulse"<<std::endl;
 
-        m_pmanage_pulse->SetConvertDisable(DLP_PULSE_PAN);
-        std::cout<<"SetConvertDisable"<<std::endl;
-
     }
 
 //    if(m_pmanage_pulse->CheckCurveConvert(DLP_PULSE_PAN))
@@ -299,5 +288,43 @@ void CSystem::ConvertSysPulse()
 //
 //        m_pmanage_pulse->SetConvertDisable(DLP_PULSE_ZOOM);
 //    }
+
+}
+
+void CSystem::InitMotorAmendAttr()
+{
+    DLPMotorAttr mattr;
+    DLPEncoderAttr eattr;
+    DLPMotorPulse type;
+                                                       /*<存放时间戳：低位，高位*/
+	uint16_t *pdata=NULL;
+	//Set Pan Attribute
+	type=DLP_PULSE_PAN;
+	pdata=&this->m_pdatamapping->GetUnit()->tab_registers[PANCODER|C_SET_GEAR];/*coder gear value address*/
+	eattr.dlp_gear[0]=*pdata;
+	eattr.dlp_gear[1]=*(++pdata);
+	eattr.dlp_bits=*(++pdata);
+
+	pdata=&this->m_pdatamapping->GetUnit()->tab_registers[PANMOTOR|M_SET_MAXSPEED];/*<motor gear value address*/
+	mattr.dlp_algorithm.max_speed=*pdata;
+	mattr.dlp_algorithm.division=*(pdata+3);
+	mattr.dlp_algorithm.gear[0]=*(pdata+4);
+	mattr.dlp_algorithm.gear[1]=*(pdata+5);
+//
+//    std::cout<<"CSystem::InitMotorAmendAttr"<<std::endl;
+//        std::cout<<"coder gear "<<eattr.dlp_gear[0]<<":"<<eattr.dlp_gear[1]<<std::endl;
+//        std::cout<<"coder bits "<<eattr.dlp_bits<<std::endl;
+//        std::cout<<"motor gear "<<mattr.dlp_algorithm.gear[0]<<":"<<mattr.dlp_algorithm.gear[1]<<std::endl;
+//        std::cout<<"motor speed "<<mattr.dlp_algorithm.max_speed<<std::endl;
+//        std::cout<<"motor division "<<mattr.dlp_algorithm.division<<std::endl;
+
+    m_pmanage_pulse->SetMotrAttr(type,mattr,eattr);
+
+    //Set Tilt Attribute
+
+    //Set Focus Attribute
+
+    //Set Zoom Attribute
+
 
 }

@@ -184,7 +184,7 @@ void CConfig::Init()
 	panmotor->append_node(doc.allocate_node(rapidxml::node_element,"max","2E4"));//740
 	panmotor->append_node(doc.allocate_node(rapidxml::node_element,"min","8C"));//140
 	panmotor->append_node(doc.allocate_node(rapidxml::node_element,"acc","12c"));//300
-	panmotor->append_node(doc.allocate_node(rapidxml::node_element,"subdivision","7"));
+	panmotor->append_node(doc.allocate_node(rapidxml::node_element,"subdivision","0"));//128
 	panmotor->append_node(doc.allocate_node(rapidxml::node_element,"gear1","38"));//37-0x25:11-0x17//56-0x38:1<==15:28x1:10x33:99
 	panmotor->append_node(doc.allocate_node(rapidxml::node_element,"gear0","1"));//17
 	panmotor->append_node(doc.allocate_node(rapidxml::node_element,"curve","2"));    //0 CTestCurve

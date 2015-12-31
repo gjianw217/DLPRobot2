@@ -29,6 +29,7 @@
 
 # temp file
 *.*~
+*.xml
 /bin/
 /library/
 /IDE/CodeBlock1312/bin/

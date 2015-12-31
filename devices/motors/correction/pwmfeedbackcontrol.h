@@ -35,7 +35,7 @@ public:
    void Run(const long &task_internal_ms);
    void Update(const PWMDevice &dev,const uint64_t &delay_ms,StopRunning stop);
   // void Update(const PWMDevice &dev,const uint64_t &delay);
-   void SetAttr(AmendAttr attr);
+   void SetAttr(DLPAmendAttr attr);
    void SetCoder(PIEncoder coder);
 private:
     void pwmtask(const boost::system::error_code& e,const long &task_internal_ms);

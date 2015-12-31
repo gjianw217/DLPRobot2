@@ -18,7 +18,7 @@ CTestCurve::~CTestCurve()
 *
 *
 */
-int CTestCurve::CreatePulseCurve(const double &angle,uint32_t *pwm)
+int CTestCurve::CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *pwm)
 {
  printf("DLP_LOG_DEBUG,Angle %f\n",angle);
 //    dlp_log(DLP_LOG_DEBUG,"CTestCurve::CreatePulseCurve");

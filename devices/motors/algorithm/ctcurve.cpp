@@ -18,20 +18,24 @@ CTCurve::~CTCurve()
 }
 
 
-int CTCurve::CreatePulseCurve(const double &angle,uint32_t *pwm)
+int CTCurve::CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *pwm)
 {
 
     std::cout<<"CTCurve::CreatePulseCurve"<<std::endl;
     int ret,sums,steps;
     uint32_t frames;
-
     uint16_t refPulse[DLP_MAX_FRAMES+1]={0};
     uint32_t pulses[DLP_MAX_FRAMES+1]={0};;
-    sums=CreateRefPulses(refPulse);
-    steps=Angle2Step(angle);
-    if(1==1)
+
+    if(0==time)
     {
+        sums=CreateRefPulses(refPulse);
+        steps=Angle2Step(angle);
         frames=ComputeFrames(steps,sums,refPulse,pulses);
+    }
+    else
+    {
+        frames=ComputeFrameswithTime(time,angle,pulses);
     }
 
     std::cout<<"show --------------"<<std::endl;
@@ -47,9 +51,10 @@ int CTCurve::CreateRefPulses(uint16_t *pulses)
 {
     int i,sum=0;
 
-    for(i=0;i<TORDERNUM;i++)
+    for(i=0;i<TORDERNUM+1;i++)
     {
-        pulses[i]=(m_attr.max_speed-m_attr.min_speed)*(2*i-1)/(2*TORDERNUM)+m_attr.min_speed;
+        //pulses[i-1]=(m_attr.max_speed-m_attr.min_speed)*(2*i-1)/(2*TORDERNUM)+m_attr.min_speed;
+        pulses[i]=(m_attr.max_speed-m_attr.min_speed)*(i)/(TORDERNUM)+m_attr.min_speed;
         sum+=pulses[i];
         std::cout<<pulses[i]<<"--";
 
@@ -153,19 +158,31 @@ int CTCurve::ComputeFrames(const uint32_t &steps,const uint16_t &ref_sum,const u
 /*
 
 */
-int CTCurve::ComputeFrameswithTime(const float time,const float &angle,const uint16_t &ref_sum,const uint16_t *ref_step,uint32_t *pulses)
+int CTCurve::ComputeFrameswithTime(uint32_t time,const float &angle,uint32_t *pulses)
 {
-    int ret,i,value;
-    uint8_t feilds=20;
-    int frames=0;
-    uint16_t step_num=Angle2Step(angle);
+
+    uint32_t frames= time/20;
+    int32_t temp=frames-2*TORDERNUM;
+    if(temp>0)
+    {
+        uint16_t step_num=Angle2Step(angle);
+        temp+=TORDERNUM*(TORDERNUM-1)/2;;
+        uint32_t const_num=step_num-TORDERNUM*m_attr.min_speed;
+        uint16_t speed= const_num/temp;
+        //set the max speed
+
+        //set the time 0
+        time=0;
+        //assign
+        CreatePulseCurve(time,angle,pulses);
+
+    }
+    else
+    {
 
 
-    uint16_t  numerator,denominator;
-    numerator=step_num-TORDERNUM*m_attr.min_speed;
-    denominator=time/feilds+TORDERNUM;
+    }
 
-    frames=numerator/denominator;
 	return 0;
 
 

@@ -79,38 +79,40 @@ static const float SubdivisionMappingAngle[]={1.8f,0.9f,0.45f,0.225f,0.1125f,0.0
 static const int SubdivisionMappingValue[]={1,2,4,8,16,32,64,128,
 	5,10,20,25,40,50,100,125};
 
-float division2angle(STEPMOTORDIVISION &division)
+
+float division2angle(const STEPMOTORDIVISION division)
 {
     return SubdivisionMappingAngle[division];
 
 }
-uint8_t division2ratio(STEPMOTORDIVISION &division)
+uint8_t division2ratio(const STEPMOTORDIVISION division)
 {
     return SubdivisionMappingValue[division];
 
 }
-STEPMOTORDIVISION ratio2division(uint8_t ratio)
+
+STEPMOTORDIVISION ratio2division(const uint8_t ratio)
 {
     STEPMOTORDIVISION  subdivision;
 	switch(ratio)
 	{
-	case 1:subdivision=one;break;
-	case 2:subdivision=two;break;
-	case 4:subdivision=four;break;
-	case 5:subdivision= five;break;
-	case 8:subdivision=eight;break;
-	case 10:subdivision=ten;break;
-	case 16:subdivision=sixteen;break;
-	case 20:subdivision=twenty;break;
-	case 25:subdivision=twentyfive;break;
-	case 32:subdivision=thirtytwo;break;
-	case 40:subdivision=forty;break;
-	case 50:subdivision=fifty;break;
-	case 64:subdivision=sixtyfour;break;
-	case 100:subdivision=hundred;break;
-	case 125:subdivision=huntwnfive;break;
-	case 128:subdivision=huntwneigth;break;
-	default :subdivision=huntwneigth;
+        case 1:subdivision=one;break;
+        case 2:subdivision=two;break;
+        case 4:subdivision=four;break;
+        case 5:subdivision= five;break;
+        case 8:subdivision=eight;break;
+        case 10:subdivision=ten;break;
+        case 16:subdivision=sixteen;break;
+        case 20:subdivision=twenty;break;
+        case 25:subdivision=twentyfive;break;
+        case 32:subdivision=thirtytwo;break;
+        case 40:subdivision=forty;break;
+        case 50:subdivision=fifty;break;
+        case 64:subdivision=sixtyfour;break;
+        case 100:subdivision=hundred;break;
+        case 125:subdivision=huntwnfive;break;
+        case 128:subdivision=huntwneigth;break;
+        default :subdivision=huntwneigth;
 	}
 	return subdivision;
 

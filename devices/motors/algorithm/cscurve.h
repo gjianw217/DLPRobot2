@@ -8,7 +8,7 @@ public:
 	CSCurve();
 	~CSCurve();
 
-	int CreatePulseCurve(const double &angle,uint32_t *pwm);
+	int CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *pwm);
 protected:
 private:
 };

@@ -104,7 +104,7 @@ void CPWMFeedbackControl::Update(const PWMDevice &dev,const uint64_t &delay_ms,S
     }
 }
 
-void CPWMFeedbackControl::SetAttr(AmendAttr attr)
+void CPWMFeedbackControl::SetAttr(DLPAmendAttr attr)
 {
     m_pamend->ConfigAttr(attr);
 }

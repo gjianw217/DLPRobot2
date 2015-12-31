@@ -38,7 +38,7 @@ CAmend::~CAmend()
 * @param
 * @return
 */
-void CAmend::ConfigAttr(AmendAttr &attr)
+void CAmend::ConfigAttr(DLPAmendAttr &attr)
 {
     std::cout<<"CAmend::ConfigAttr"<<std::endl;
     m_attr=attr;
