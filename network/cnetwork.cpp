@@ -9,7 +9,7 @@
 #include "cparse.h"
 #include "cselect.h"
 #include "cnetwork.h"
-#include <sys/select.h>
+//#include <sys/select.h>
 #include "../utils/cdebug.h"
 
 CNetwork::CNetwork()

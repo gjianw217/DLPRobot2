@@ -7,7 +7,7 @@
 # Precompiled Headers
 *.gch
 *.pch
-
+*.sdf
 # Compiled Dynamic libraries
 *.so
 *.dylib
@@ -34,3 +34,5 @@
 /library/
 /IDE/CodeBlock1312/bin/
 /IDE/CodeBlock1312/obj/
+/IDE/VS2013/Debug/
+

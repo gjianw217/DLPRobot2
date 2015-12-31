@@ -22,9 +22,10 @@ public:
 	virtual void Run(const uint32_t *pwm);
 private:
 	std::string m_name;
+#ifndef DLP_WINDOW
 	tpruss_intc_initdata m_initdata0;
 	tpruss_intc_initdata m_initdata1;
-
+#endif
 };
 
 #endif //DLP_DRIVERS_CPRU_H_

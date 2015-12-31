@@ -102,6 +102,7 @@ void CAmendPulse::GetAmendTime(const DLPMotorPulse &type,const int16_t &amend_er
 {
     uint32_t sum_time,amend_time;
     if(type>DLP_PULSE_NO&&type<DLP_PULSE_MAX)
+
     {
         amend_time=static_cast<uint32_t>(sum_time*1000)-m_counter[type]*20; //unit==ms
         m_amend_time[type][0]=amend_time%1000;
