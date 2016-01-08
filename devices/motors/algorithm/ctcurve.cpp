@@ -59,7 +59,7 @@ int CTCurve::CreateRefPulses(uint16_t *pulses)
         std::cout<<pulses[i]<<"--";
 
     }
-    pulses[TORDERNUM]=2*sum;  //sum frames
+    pulses[TORDERNUM]=2*sum;  //sum pulses
     std::cout<<std::endl;
 
     return pulses[TORDERNUM];
@@ -163,19 +163,23 @@ int CTCurve::ComputeFrameswithTime(uint32_t time,const float &angle,uint32_t *pu
 
     uint32_t frames= time/20;
     int32_t temp=frames-2*TORDERNUM;
+    //If greater than zero, then there is uniform speed phase and to modify the speed by the solving equations
     if(temp>0)
     {
         uint16_t step_num=Angle2Step(angle);
         temp+=TORDERNUM*(TORDERNUM-1)/2;;
         uint32_t const_num=step_num-TORDERNUM*m_attr.min_speed;
         uint16_t speed= const_num/temp;
-        //set the max speed
 
+        uint16_t default_speed=GetMaxSpeed();
+        //set the max speed
+        SetMaxSpeed(speed);
         //set the time 0
         time=0;
         //assign
         CreatePulseCurve(time,angle,pulses);
-
+        //restore the max speed
+        SetMaxSpeed(default_speed);
     }
     else
     {
