@@ -306,10 +306,10 @@ void CSystem::InitMotorAmendAttr()
 	eattr.dlp_bits=*(++pdata);
 
 	pdata=&this->m_pdatamapping->GetUnit()->tab_registers[PANMOTOR|M_SET_MAXSPEED];/*<motor gear value address*/
-	mattr.dlp_algorithm.max_speed=*pdata;
-	mattr.dlp_algorithm.division=*(pdata+3);
-	mattr.dlp_algorithm.gear[0]=*(pdata+4);
-	mattr.dlp_algorithm.gear[1]=*(pdata+5);
+	mattr.dlp_algorithm.g.max_speed=*pdata;
+	mattr.dlp_algorithm.g.division=*(pdata+3);
+	mattr.dlp_algorithm.g.gear[0]=*(pdata+4);
+	mattr.dlp_algorithm.g.gear[1]=*(pdata+5);
 //
 //    std::cout<<"CSystem::InitMotorAmendAttr"<<std::endl;
 //        std::cout<<"coder gear "<<eattr.dlp_gear[0]<<":"<<eattr.dlp_gear[1]<<std::endl;

@@ -47,6 +47,7 @@ typedef enum
 	DLP_MOTOR_CURVE_L=1,
 	DLP_MOTOR_CURVE_T=2,
 	DLP_MOTOR_CURVE_S=3,
+	DLP_MOTOR_CURVE_B=4,
 	DLP_MOTOR_CURVE_NO=-1
 }DLPMotorCurveType;
 
@@ -66,13 +67,65 @@ typedef struct
 	uint16_t pin;
 	uint16_t value;
 }DLPDirAttr;
+///////////////////////////////////////////////////////////////////////
 typedef struct
 {
 	uint16_t max_speed;
 	uint16_t min_speed;
-	uint16_t gear[2];
-	uint16_t acc;
 	uint8_t division;
+	uint16_t gear[2];
+}DLPGAlgorithmAttr;//General Algorithm Attribute
+
+typedef struct
+{
+
+
+	uint16_t acc;
+
+}DLPTAlgorithmAttr;//Trapezoid Algorithm Attribute
+
+typedef struct
+{
+    uint16_t hmax;
+    uint16_t amax;
+}DLPSAlgorithmAttr;//S Shape Algorithm Attribute
+
+typedef struct
+{
+
+	float x;
+	int y;
+}CoordValue;
+
+typedef struct
+{
+    float a;
+    float b;
+    float c;
+
+}BezierWeight;
+typedef struct
+{
+
+    BezierWeight x;
+    BezierWeight y;
+
+    float inc;
+}DLPBAlgorithmAttr;//Bezier Algorithm Attribute
+
+typedef struct
+{
+	//uint16_t max_speed;
+//	uint16_t min_speed;
+//	uint16_t gear[2];
+//	uint16_t acc;
+//	uint8_t division;
+
+	DLPGAlgorithmAttr g;
+	DLPTAlgorithmAttr t;
+	DLPSAlgorithmAttr s;
+	DLPBAlgorithmAttr b;
+
 	DLPRole  role;
 
 }DLPAlgorithmAttr;
@@ -88,7 +141,7 @@ typedef struct
 	uint16_t dlp_model;
 
 }DLPMotorAttr;
-
+/////////////////////////////////////////////////////////////////////////////////////////////
 typedef struct
 {
     long pwm_period_ns;
@@ -99,9 +152,6 @@ typedef struct
     float coder_unit_angle;//The angle that the coder rotates a step
     float coder_unit_pulse;//the pusle that the coder rotates a coder_unit_angle
 }DLPAmendAttr;
-
-
-
 
 
 typedef enum

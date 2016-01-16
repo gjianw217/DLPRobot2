@@ -2,6 +2,8 @@
 #include "algorithm/clcurve.h"
 #include "algorithm/ctcurve.h"
 #include "algorithm/cscurve.h"
+#include "algorithm/cbeziercurve.h"
+
 #include "algorithm/crotation360.h"
 #include "algorithm/crotation720.h"
 #include "algorithm/crotationany.h"
@@ -29,6 +31,7 @@ void CAlgorithm::Init()
 	m_curves[DLP_MOTOR_CURVE_L]=PCLCurve(new CLCurve());
 	m_curves[DLP_MOTOR_CURVE_T]=PCTCurve(new CTCurve());
 	m_curves[DLP_MOTOR_CURVE_S]=PCSCurve(new CSCurve());
+	m_curves[DLP_MOTOR_CURVE_B]=PCBezierCurve(new CBezierCurve());
 }
 
 void CAlgorithm::SetAttr(const DLPAlgorithmAttr &attr)

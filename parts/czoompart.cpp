@@ -69,34 +69,34 @@ void CZoomPart::parseCoderAttr(DLPEncoderAttr &attr)
 
 void CZoomPart::parseMotorAttr(DLPMotorAttr &attr)
 {
-    uint16_t data[10]={0};
-    m_pdatamapping->GetHoldRegisters(ZOOMMOTOR,12,data);//ZOOMMOTOR==0xB00
-
-    attr.dlp_algorithm.max_speed=data[0];
-    attr.dlp_algorithm.min_speed=data[1];
-    attr.dlp_algorithm.acc=data[2];
-    attr.dlp_algorithm.division=data[3];
-
-
-    attr.dlp_algorithm.gear[0]=data[4];
-    attr.dlp_algorithm.gear[1]=data[5];
-    attr.dlp_curve=static_cast<DLPMotorCurveType>(data[6]);
-    attr.dlp_rotation=static_cast<DLPMotorRotationType>(data[7]);
-    attr.dlp_type=data[8];
-    attr.dlp_algorithm.role=static_cast<DLPRole>(data[8]);
-    attr.dlp_model=data[9];
-
-    attr.dlp_pwm.dutyNs=data[11]<<8|data[10];
-    attr.dlp_pwm.periodNs=data[13]<<8|data[12];;
-    attr.dlp_pwm.polarity=data[14];
-    attr.dlp_pwm.runStatus=data[15];
-
-    m_pdatamapping->GetInputRegisters(ZOOMMOTOR+5,4,data);
-    attr.dlp_pwm.pwmpin=data[0];
-    attr.dlp_pwm.pwmvalue=data[1];
-    attr.dlp_dir.pin=data[2];
-    attr.dlp_dir.value=data[3];
-
-    PrintMotorAttr(attr);
+//    uint16_t data[10]={0};
+//    m_pdatamapping->GetHoldRegisters(ZOOMMOTOR,12,data);//ZOOMMOTOR==0xB00
+//
+//    attr.dlp_algorithm.max_speed=data[0];
+//    attr.dlp_algorithm.min_speed=data[1];
+//    attr.dlp_algorithm.acc=data[2];
+//    attr.dlp_algorithm.division=data[3];
+//
+//
+//    attr.dlp_algorithm.gear[0]=data[4];
+//    attr.dlp_algorithm.gear[1]=data[5];
+//    attr.dlp_curve=static_cast<DLPMotorCurveType>(data[6]);
+//    attr.dlp_rotation=static_cast<DLPMotorRotationType>(data[7]);
+//    attr.dlp_type=data[8];
+//    attr.dlp_algorithm.role=static_cast<DLPRole>(data[8]);
+//    attr.dlp_model=data[9];
+//
+//    attr.dlp_pwm.dutyNs=data[11]<<8|data[10];
+//    attr.dlp_pwm.periodNs=data[13]<<8|data[12];;
+//    attr.dlp_pwm.polarity=data[14];
+//    attr.dlp_pwm.runStatus=data[15];
+//
+//    m_pdatamapping->GetInputRegisters(ZOOMMOTOR+5,4,data);
+//    attr.dlp_pwm.pwmpin=data[0];
+//    attr.dlp_pwm.pwmvalue=data[1];
+//    attr.dlp_dir.pin=data[2];
+//    attr.dlp_dir.value=data[3];
+//
+//    PrintMotorAttr(attr);
 
 }

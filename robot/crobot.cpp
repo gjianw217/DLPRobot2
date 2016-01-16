@@ -68,13 +68,13 @@ void CRobot::Init()
     m_motors[DLP_PAN]=m_ppan->GetMotor();
     m_switchs[DLP_PAN]=m_ppan->GetSwitch();
 
-    dlp_log(DLP_LOG_DEBUG,"Robot::FocusPart-----------------------");
-    m_pfocus=PCFocusPart(new CFocusPart(m_pdatamapping));
-    m_pfocus->Init();                                      //create the coder and motor
-    m_coders[DLP_FOCUS]=m_pfocus->GetCoder();
-    m_motors[DLP_FOCUS]=m_pfocus->GetMotor();
-
-    dlp_log(DLP_LOG_DEBUG,"--------------------------------------------");
+//    dlp_log(DLP_LOG_DEBUG,"Robot::FocusPart-----------------------");
+//    m_pfocus=PCFocusPart(new CFocusPart(m_pdatamapping));
+//    m_pfocus->Init();                                      //create the coder and motor
+//    m_coders[DLP_FOCUS]=m_pfocus->GetCoder();
+//    m_motors[DLP_FOCUS]=m_pfocus->GetMotor();
+//
+//    dlp_log(DLP_LOG_DEBUG,"--------------------------------------------");
 }
 void CRobot::CreateParts()
 {

@@ -74,12 +74,23 @@ void CPanPart::parseMotorAttr(DLPMotorAttr &attr)
     uint16_t data[10]={0};
     m_pdatamapping->GetHoldRegisters(PANMOTOR,10,data);//PANMOTOR==0x800
 
-    attr.dlp_algorithm.max_speed=data[0];
-    attr.dlp_algorithm.min_speed=data[1];
-    attr.dlp_algorithm.acc=data[2];
-    attr.dlp_algorithm.division=data[3];
-    attr.dlp_algorithm.gear[0]=data[4];
-    attr.dlp_algorithm.gear[1]=data[5];
+//    attr.dlp_algorithm.max_speed=data[0];
+//    attr.dlp_algorithm.min_speed=data[1];
+//    attr.dlp_algorithm.acc=data[2];
+//    attr.dlp_algorithm.division=data[3];
+//    attr.dlp_algorithm.gear[0]=data[4];
+//    attr.dlp_algorithm.gear[1]=data[5];
+
+    attr.dlp_algorithm.g.max_speed=data[0];
+    attr.dlp_algorithm.g.min_speed=data[1];
+    attr.dlp_algorithm.g.division=data[2];
+    attr.dlp_algorithm.g.gear[0]=data[4];
+    attr.dlp_algorithm.g.gear[1]=data[5];
+    attr.dlp_algorithm.t.acc=data[3];
+    attr.dlp_algorithm.s.amax=20;
+    attr.dlp_algorithm.s.hmax=2;
+    attr.dlp_algorithm.b.inc=1/BORDERNUM;
+
     attr.dlp_curve=static_cast<DLPMotorCurveType>(data[6]);
     attr.dlp_rotation=static_cast<DLPMotorRotationType>(data[7]);
 

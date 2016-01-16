@@ -19,7 +19,9 @@ OBJ=cdirection.o\
 	algorithm/ctestcurve.o\
 	algorithm/clcurve.o\
 	algorithm/ctcurve.o\
-	algorithm/cscurve.o
+	algorithm/cscurve.o\
+	algorithm/cbeziercurve.o
+
 INC=-I../../library/include
 BBB=LINUX
 CFLAGS=$(CFLAG)

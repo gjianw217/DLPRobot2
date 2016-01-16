@@ -53,6 +53,8 @@
 		<Unit filename="../../devices/encoder/csensorcounter.h" />
 		<Unit filename="../../devices/encoder/iencoder.cpp" />
 		<Unit filename="../../devices/encoder/iencoder.h" />
+		<Unit filename="../../devices/motors/algorithm/cbeziercurve.cpp" />
+		<Unit filename="../../devices/motors/algorithm/cbeziercurve.h" />
 		<Unit filename="../../devices/motors/algorithm/clcurve.cpp" />
 		<Unit filename="../../devices/motors/algorithm/clcurve.h" />
 		<Unit filename="../../devices/motors/algorithm/crotation360.cpp" />

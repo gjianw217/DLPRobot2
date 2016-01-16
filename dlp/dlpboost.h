@@ -30,6 +30,7 @@ class ICurve;
 class CLCurve;
 class CTCurve;
 class CSCurve;
+class CBezierCurve;
 class CTestCurve;
 class CTestRotation;
 
@@ -108,6 +109,7 @@ typedef boost::shared_ptr<ICurve>  PICurve;
 typedef boost::shared_ptr<CLCurve>  PCLCurve;
 typedef boost::shared_ptr<CTCurve>  PCTCurve;
 typedef boost::shared_ptr<CSCurve>  PCSCurve;
+typedef boost::shared_ptr<CBezierCurve > PCBezierCurve;
 typedef boost::shared_ptr<CTestCurve> PCTestCurve;
 typedef boost::shared_ptr<CTestRotation> PCTestRotation;
 

@@ -14,16 +14,22 @@
 #include "cdirection.h"
 #include "cstepmotor.h"
 
+/**
+* @brief Custom PRU dirver the step motor
+*/
 CStepMotor::CStepMotor():IMotor()
 {
 	memset(this->m_pwm_array,0,(4*PWM_ORDER+3)*sizeof(uint32_t));
 	m_ppru=PCPRU(new CPRU("pru1"));
 }
 
+/**
+*@brief System PWM dirver the step motor
+*/
 CStepMotor::CStepMotor( std::string pru_pin):IMotor()
 {
-	m_ppru=PCPRU(new CPRU(pru_pin));
-	//m_ppwm=PCPWM(new CPWM("xxx",5000,3));
+
+	m_ppru=PCPRU(new CPRU("pru0")); //Test Used
 	memset(this->m_pwm_array,0,(4*PWM_ORDER+3)*sizeof(uint32_t));
 }
 
@@ -32,29 +38,38 @@ CStepMotor::~CStepMotor()
 
 }
 
+/**
+* @brief Check whether there is any commands(not executing) in the command queue.
+* @return the acount of the command in the command queue.
+**/
 int CStepMotor::ReadCmd()
 {
     return m_curve_cmds.size();
 }
-
+/**
+* @brief Save the received command to the command queue
+* @param received the command
+*/
 void CStepMotor::WriteCmd(DLPModbusCmd &cmd)
 {
-    dlp_log(DLP_LOG_DEBUG,"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+    dlp_log(DLP_LOG_DEBUG,"CStepMotor::WriteCmd");
     this->m_curve_cmds.push_back(cmd);
-    std::cout<<m_curve_cmds.size()<<std::endl;
 
     //CmdConvertPulses();
 }
 
+/**
+* @brief  convert angle command into the control pulse
+*/
 void CStepMotor::CmdConvertPulses()
 {
 
     if(m_pcurve.use_count()==0)
     {
-        dlp_log(DLP_LOG_ERR,"Without Setting the curve algorithm for the motor");
+        dlp_log(DLP_LOG_ERR,"Not Setting the curve algorithm for the motor");
         return;
     }
-    dlp_log(DLP_LOG_ERR,"Without Setting the curve algorithm for the motor");
+    dlp_log(DLP_LOG_DEBUG,"CStepMotor::CmdConvertPulses()");
 
     DLPModbusCmd cmd;
     uint32_t time=0;
@@ -62,14 +77,30 @@ void CStepMotor::CmdConvertPulses()
 
     cmd = m_curve_cmds.at(m_curve_cmds.size() -1);
     this->m_curve_cmds.pop_front();
+
+    /**
+    data[4]   data[3]   data[2]        data[1]         data[0]
+    time(s)   time(ms) angle(integer) angle(decimal)  direction
+    */
     angle=static_cast<float>(cmd.cmd_data[2]+cmd.cmd_data[1]*0.001);;
     time=cmd.cmd_data[4]*1000+cmd.cmd_data[3];
-
+#ifdef DLP_DEBUG
     std::cout<<"angle:"<<angle<<"time:"<<time<<std::endl;
-
+#endif // DLP_DEBUG
     m_pcurve->CreatePulseCurve(time,angle,m_pwm_array);
 
+    //Test Used----------------------------------------------------
+    if (m_ppru)
+	{
+		m_ppru->Run(m_pwm_array);
+	}
 }
+
+/**
+* @brief  read the generated pulse array, it is produced by the specified curve algorithm
+* @param  storing the addresses of pulse
+* @return the group number of the pulse
+*/
 int CStepMotor::ReadPulses(uint32_t *des)
 {
     if(des!=NULL)
@@ -83,19 +114,22 @@ int CStepMotor::ReadPulses(uint32_t *des)
     return m_pwm_array[0];
 }
 
+/**
+* @brief Save the Amend the data into the command queue
+* @param cmd pointer ,including the angle (and the time)
+*/
 void CStepMotor::SetCmdAmendPulses(uint16_t *pdata)
 {
-    std::cout<<" CStepMotor::CmdAmendPulses"<<std::endl;
+    dlp_log(DLP_LOG_DEBUG,"CStepMotor::SetCmdAmendPulses");
     DLPModbusCmd cmd;
     cmd.cmd_data[2]=pdata[2];
     cmd.cmd_data[1]=pdata[1];
 
-
-    this->m_curve_cmds.push_front(cmd);
+    this->m_curve_cmds.push_front(cmd);//put the cmd on the  most front in the command queue
 }
 
-/***********************************/
-
+/*********************************************************************************************/
+/**@deprecated*/
 void CStepMotor::Run(uint32_t pulseNum,uint8_t status)
 {
     uint32_t pwm[2]={0};
@@ -109,7 +143,7 @@ void CStepMotor::Run(uint32_t pulseNum,uint8_t status)
 /**
 
 */
-
+/**@deprecated*/
 void CStepMotor::RunbyAngleTimeDir(const double &angle,const uint32_t &time,const uint16_t &dir,const uint8_t &curve)
 {
 /*Naked command test
@@ -141,7 +175,7 @@ void CStepMotor::RunbyAngleTimeDir(const double &angle,const uint32_t &time,cons
 }
 
 
-
+/**@deprecated*/
 void CStepMotor::RunbyAngle(const double &angle,const uint16_t &dir/* =0 */)
 {
 	//dlp_log(DLP_LOG_DEBUG,"CStepMotor::RunbyAngle");
@@ -202,12 +236,12 @@ void CStepMotor::RunbyAngle(const double &angle,const uint16_t &dir/* =0 */)
 
 
 }
-
+/**@deprecated*/
 void CStepMotor::RunByTime(const double &time,const double &angle,const uint16_t &dir/* =0 */)
 {
 
 }
-
+/**@deprecated*/
 void CStepMotor::EmergencyStop()
 {
     dlp_log(DLP_LOG_DEBUG,"CStepMotor::EmergencyStop()");
@@ -221,7 +255,7 @@ void CStepMotor::EmergencyStop()
         m_pdirection->SetDirValue(0);
 	}
 }
-
+/**@deprecated*/
 void CStepMotor::ReturnRefOrigin()
 {
     dlp_log(DLP_LOG_DEBUG,"CStepMotor::ReturnRefOrigin()");

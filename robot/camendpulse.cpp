@@ -175,9 +175,9 @@ void CAmendPulse::SetAmendAttr(const DLPMotorPulse &type,const DLPMotorAttr &mat
         m_amend_attr[type].coder_gear_rate=eattr.dlp_gear[1]/eattr.dlp_gear[0];;
         m_amend_attr[type].coder_unit_angle=360/(pow(2,eattr.dlp_bits)-1);
         m_amend_attr[type].coder_unit_pulse=16;
-        m_amend_attr[type].motor_gear_rate=mattr.dlp_algorithm.gear[1]/mattr.dlp_algorithm.gear[0];
-        m_amend_attr[type].motor_speed=mattr.dlp_algorithm.max_speed;
-        m_amend_attr[type].step_angle=division2angle(ratio2division(mattr.dlp_algorithm.division));
+        m_amend_attr[type].motor_gear_rate=mattr.dlp_algorithm.g.gear[1]/mattr.dlp_algorithm.g.gear[0];
+        m_amend_attr[type].motor_speed=mattr.dlp_algorithm.g.max_speed;
+        m_amend_attr[type].step_angle=division2angle(ratio2division(mattr.dlp_algorithm.g.division));
 
      }
 }

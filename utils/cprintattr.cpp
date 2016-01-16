@@ -47,11 +47,15 @@ void PrintMotorAttr(const DLPMotorAttr &attr)
 		<<"    dlp_rotation:"<<attr.dlp_rotation<<std::endl
         <<"    dlp_type:"<<attr.dlp_type<<std::endl
 		<<"    dlp_model:"<<attr.dlp_model<<std::endl
-		<<"    dlp_algorithm.max_speed:"<<attr.dlp_algorithm.max_speed<<std::endl
-		<<"    dlp_algorithm.min_speed:"<<attr.dlp_algorithm.min_speed<<std::endl
-		<<"    dlp_algorithm.acc:"<<attr.dlp_algorithm.acc<<std::endl
-		<<"    dlp_algorithm.division:"<<attr.dlp_algorithm.division<<std::endl
-		<<"    dlp_algorithm.gear:"<<attr.dlp_algorithm.gear[1]<<":"<<attr.dlp_algorithm.gear[0]<<std::endl
+		<<"    dlp_algorithm.division:"<<attr.dlp_algorithm.g.division<<std::endl
+		<<"    dlp_algorithm.gear:"<<attr.dlp_algorithm.g.gear[1]<<":"<<attr.dlp_algorithm.g.gear[0]<<std::endl
+		<<"    dlp_algorithm.g.max_speed :"<<attr.dlp_algorithm.g.max_speed <<std::endl
+		<<"    dlp_algorithm.g.min_speed :"<<attr.dlp_algorithm.g.min_speed <<std::endl
+		<<"    dlp_algorithm.t.acc  :"<<attr.dlp_algorithm.t.acc <<std::endl
+		<<"    dlp_algorithm.s.amax :"<<attr.dlp_algorithm.s.amax <<std::endl
+		<<"    dlp_algorithm.s.hmax  :"<<attr.dlp_algorithm.s.hmax <<std::endl
+		<<"    dlp_algorithm.b.in :"<<attr.dlp_algorithm.b.inc <<std::endl
+
 		<<"    dlp_dir:"<<attr.dlp_dir.pin<<":"<<attr.dlp_dir.value<<std::endl
         <<"    pwmpin:"<<attr.dlp_pwm.pwmpin<<std::endl
 		<<"    pwmvalue:"<<attr.dlp_pwm.pwmvalue<<std::endl;

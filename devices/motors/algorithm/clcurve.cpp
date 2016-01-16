@@ -25,10 +25,10 @@ int CLCurve::CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *
 //        pwm[2]=angle/SubdivisionMappingAngle[num2division(m_attr.division)];
 #ifdef DLP_DEBUG
         printf("DLP_LOG_DEBUG,Angle %f\n",angle);
-        printf("DLP_LOG_DEBUG,Division %d",m_attr.division);
+        printf("DLP_LOG_DEBUG,Division %d",m_attr.g.division);
        /// printf(",Step Angle %f",SubdivisionMappingAngle[num2division(m_attr.division)]);
-        printf(",Max Speed%d",m_attr.max_speed);
-        printf(",Min Speed%d\n",m_attr.min_speed);
+        printf(",Max Speed%d",m_attr.g.max_speed);
+        printf(",Min Speed%d\n",m_attr.g.min_speed);
 #endif // DLP_DEBUG
     }
 	return 0;

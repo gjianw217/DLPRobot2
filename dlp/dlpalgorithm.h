@@ -3,10 +3,11 @@
 #include <stdint.h>
 
 #define  ORDERNUM 10
-#define TORDERNUM 10
-#define S1ORDERNUM 10
+#define TORDERNUM 10  //trapezoid order
+#define S1ORDERNUM 10  //S-shape order
 #define S2ORDERNUM 10
 #define S3ORDERNUM 10
+#define BORDERNUM 40  //bezier order
 
 /*Frequency division coefficient Table of Stepper motor driver (DM856)*/
 typedef enum {

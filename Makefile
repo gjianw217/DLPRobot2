@@ -21,6 +21,7 @@ OBJ=main.o\
 	devices/motors/algorithm/clcurve.o\
 	devices/motors/algorithm/ctcurve.o\
 	devices/motors/algorithm/cscurve.o\
+	devices/motors/algorithm/cbeziercurve.o\
 	devices/motors/cdirection.o\
 	devices/motors/correction/camend.o\
 	devices/motors/correction/cpwmfeedbackcontrol.o\

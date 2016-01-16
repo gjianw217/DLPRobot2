@@ -71,29 +71,29 @@ void CTiltPart::parseCoderAttr(DLPEncoderAttr &attr)
 
 void CTiltPart::parseMotorAttr(DLPMotorAttr &attr)
 {
-    uint16_t data[10]={0};
-    m_pdatamapping->GetHoldRegisters(TILTMOTOR,10,data);//TILTMOTOR==0x900
-
-    attr.dlp_algorithm.max_speed=data[0];
-    attr.dlp_algorithm.min_speed=data[1];
-    attr.dlp_algorithm.acc=data[2];
-    attr.dlp_algorithm.division=data[3];
-    attr.dlp_algorithm.gear[0]=data[4];
-    attr.dlp_algorithm.gear[1]=data[5];
-    attr.dlp_curve=static_cast<DLPMotorCurveType>(data[6]);
-    attr.dlp_rotation=static_cast<DLPMotorRotationType>(data[7]);
-
-    //attr.dlp_algorithm.role=static_cast<DLPRole>(data[8]);
-    attr.dlp_algorithm.role=DLP_TILT;
-    attr.dlp_type=data[8];
-    attr.dlp_model=data[9];
-
-    m_pdatamapping->GetInputRegisters(TILTMOTOR+5,4,data);//TILTMOTOR==0x900
-
-    attr.dlp_pwm.pwmpin=data[0];
-    attr.dlp_pwm.pwmvalue=data[1];
-    attr.dlp_dir.pin=data[2];
-    attr.dlp_dir.value=data[3];
-
-    PrintMotorAttr(attr);
+//    uint16_t data[10]={0};
+//    m_pdatamapping->GetHoldRegisters(TILTMOTOR,10,data);//TILTMOTOR==0x900
+//
+//    attr.dlp_algorithm.max_speed=data[0];
+//    attr.dlp_algorithm.min_speed=data[1];
+//    attr.dlp_algorithm.acc=data[2];
+//    attr.dlp_algorithm.division=data[3];
+//    attr.dlp_algorithm.gear[0]=data[4];
+//    attr.dlp_algorithm.gear[1]=data[5];
+//    attr.dlp_curve=static_cast<DLPMotorCurveType>(data[6]);
+//    attr.dlp_rotation=static_cast<DLPMotorRotationType>(data[7]);
+//
+//    //attr.dlp_algorithm.role=static_cast<DLPRole>(data[8]);
+//    attr.dlp_algorithm.role=DLP_TILT;
+//    attr.dlp_type=data[8];
+//    attr.dlp_model=data[9];
+//
+//    m_pdatamapping->GetInputRegisters(TILTMOTOR+5,4,data);//TILTMOTOR==0x900
+//
+//    attr.dlp_pwm.pwmpin=data[0];
+//    attr.dlp_pwm.pwmvalue=data[1];
+//    attr.dlp_dir.pin=data[2];
+//    attr.dlp_dir.value=data[3];
+//
+//    PrintMotorAttr(attr);
 }

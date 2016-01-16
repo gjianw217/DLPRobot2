@@ -17,11 +17,11 @@ void ICurve::SetAttr(const DLPAlgorithmAttr &attr)
 
 void ICurve::SetMaxSpeed(const uint16_t &max_speed)
 {
-    m_attr.max_speed=max_speed;
+    m_attr.g.max_speed=max_speed;
 
 }
 
 uint16_t ICurve::GetMaxSpeed(void )
 {
-    return m_attr.max_speed;
+    return m_attr.g.max_speed;
 }
