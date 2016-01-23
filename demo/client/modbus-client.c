@@ -80,8 +80,8 @@ int main(int argc, char *argv[])
 //     ctx = modbus_new_tcp("192.168.1.103", 1502);
 //    ctx = modbus_new_tcp("192.168.7.10", 1502);
 //    ctx = modbus_new_tcp("192.168.21.141", 1502);
-   ctx = modbus_new_tcp("192.168.0.10", 1502);
- //    ctx = modbus_new_tcp("192.168.0.217", 1502);
+   //  ctx = modbus_new_tcp("192.168.0.10", 1502);
+   ctx = modbus_new_tcp("192.168.0.217", 1502);
     //
 
 //ctx = modbus_new_tcp("192.168.0.10", 1502);
@@ -644,7 +644,7 @@ printf(" 192.168.0.217 ,modbus new TCP or RTU\n");
 				}
 				break;
 			}
-			//operation pitch motor
+			//operation pitch motor333333333333333333333333333333
 			case 3:
 			 {
 				 if(0==operation)
@@ -716,7 +716,7 @@ printf(" 192.168.0.217 ,modbus new TCP or RTU\n");
 				}
 				 break;
 			 }//end case 3
-            /**平摇编码器功能测试*/
+            /**平摇编码器功能测试444444444444444444444444444444*/
 			case 4:
 			{
 				if(0==operation)
@@ -873,7 +873,7 @@ printf(" 192.168.0.217 ,modbus new TCP or RTU\n");
 				break;
 
 			}//case 4
-			/**俯仰编码器功能测试*/
+			/**俯仰编码器功能测试55555555555555555555555555*/
 			case 5:
 			{
 				if(0==operation)
@@ -1021,7 +1021,7 @@ printf(" 192.168.0.217 ,modbus new TCP or RTU\n");
 			}//case 5
 
 			//operation panning motor
-			/**平摇电机功能测试*/
+			/**平摇电机功能测试88888888888888888888888888888888*/
 			case 8:
 			{
 				if(0==operation)
@@ -1141,8 +1141,8 @@ printf(" 192.168.0.217 ,modbus new TCP or RTU\n");
 					printf("\t\nRunning the Panning Motor by Angle\n");
 					printf("-----------------------------\n");
 					array[0]=0;
-					array[1]=value;
-					array[2]=0;
+					array[1]=0;
+					array[2]=value;
                     rc=modbus_write_registers(ctx,0x0812,3,array);
                     if(rc==-1)
                         exit(0);

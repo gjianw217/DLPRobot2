@@ -14,7 +14,7 @@ CLCurve::~CLCurve()
 
 int CLCurve::CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *pwm)
 {
-    dlp_log(DLP_LOG_DEBUG,"CLCurve::CreatePulseCurve");
+    dlp_log(DLP_LOG_DEBUG,"CLCurve::CreatePulseCurve(L)");
     if(DLP_PAN==m_attr.role||DLP_TILT==m_attr.role)
     {
         dlp_log(DLP_LOG_DEBUG,"PTZ::CreatePulseCurve");

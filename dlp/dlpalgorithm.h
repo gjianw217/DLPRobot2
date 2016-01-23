@@ -4,10 +4,9 @@
 
 #define  ORDERNUM 10
 #define TORDERNUM 10  //trapezoid order
-#define S1ORDERNUM 10  //S-shape order
-#define S2ORDERNUM 10
-#define S3ORDERNUM 10
+#define SORDERNUM 62  //S-shape order,not used ,Determined by the algorithm itself
 #define BORDERNUM 40  //bezier order
+#define DLP_PULSE_MAX_FRAME (3876+224)
 
 /*Frequency division coefficient Table of Stepper motor driver (DM856)*/
 typedef enum {

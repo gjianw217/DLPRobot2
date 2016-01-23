@@ -7,6 +7,7 @@
 typedef struct
 {
     bool     cmd_convert_curve_enable;
+    bool     angle_pulse_existence;
     uint32_t angle_pulse_frame_counter;
     uint32_t angle_pulse_frame_sum;
 }DLPPulse;
@@ -19,6 +20,8 @@ public:
 	//CAmendPulse
 	void SetMotrAttr(const DLPMotorPulse &type,const DLPMotorAttr &mattr,const DLPEncoderAttr &eattr);
 	int IsAmend(const DLPMotorPulse &type,const float &coder_angle);
+	int IsConvert(const DLPMotorPulse &type);
+	int IsPulses(void );
 	void GetAmendParameter(const DLPMotorPulse &type,uint16_t *time_angle);
 	void SetAmendParameter(const DLPMotorPulse &type,uint16_t *time_angle);
 
@@ -26,7 +29,7 @@ public:
 	void UpdateCurvePulse(const DLPMotorPulse &type,const uint8_t &len,const uint32_t *src);  //convert the angle into pulse according to the curve type
 
 	//CSysPulses
-	void RunPulseGoup();      //run the step motor
+	void RunPulseGroup();      //run the step motor
 
 	//Local
 	int CheckCurveConvert(const DLPMotorPulse &type);

@@ -1,6 +1,6 @@
 #include "cdevpulses.h"
 #include <string.h>
-
+#include "../utils/cdebug.h"
 
 CDevPulses::CDevPulses()
 {
@@ -54,20 +54,24 @@ void     CDevPulses::WriteDevPulsesCurve(const DLPMotorPulse &type,const uint8_t
     }
 }
 
-
-void CDevPulses::ReadPulseGroup(const uint8_t &pos,uint32_t *des)
+/**
+*
+*
+*/
+void CDevPulses::ReadPulseGroup(uint32_t *des)
 {
-    if((pos>0)&&(pos<DLP_MAX_PULSES)&&(des!=NULL))
+    dlp_log(DLP_LOG_DEBUG," CDevPulses::ReadPulseGroup");
+    if(des!=NULL)
     {
         if(m_dev_pulses[DLP_PULSE_PAN][m_counter]>0)//PanDevPulses=0
         {
-            des[0]=1;
-            des[1]=m_dev_pulses[DLP_PULSE_PAN][m_counter];
+            des[2]=1;
+            des[3]=m_dev_pulses[DLP_PULSE_PAN][m_counter];
         }
         if(m_dev_pulses[DLP_PULSE_TILT][m_counter]>0)//TiltDevPulses=1
         {
-            des[2]=1;
-            des[3]=m_dev_pulses[DLP_PULSE_TILT][m_counter];
+            des[0]=1;
+            des[1]=m_dev_pulses[DLP_PULSE_TILT][m_counter];
         }
         if(m_dev_pulses[DLP_PULSE_ZOOM][m_counter]>0) //FocusDevPulses=2
         {
@@ -80,7 +84,8 @@ void CDevPulses::ReadPulseGroup(const uint8_t &pos,uint32_t *des)
             des[7]=m_dev_pulses[DLP_PULSE_FOCUS][m_counter];
         }
 
-        m_counter++;
+         m_counter++;
+
 
     }
 

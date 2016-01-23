@@ -4,7 +4,7 @@
 #include "../dlp/dlp.h"
 #include <map>
 
-#define DLP_MAX_PULSES 100
+#define DLP_MAX_PULSES 300
 /*Save all the equipment of pulse*/
 class CDevPulses
 {
@@ -17,7 +17,7 @@ public:
 	void     ReadDevPulsesCurve(const DLPMotorPulse &type,const uint8_t &len,uint32_t *des);
 	void     WriteDevPulsesCurve(const DLPMotorPulse &type,const uint8_t &len,const uint32_t *src);
 
-    void  ReadPulseGroup(const uint8_t &pos,uint32_t *des);
+    void  ReadPulseGroup(uint32_t *des);
 
 protected:
     int check_para(const DLPMotorPulse &type,const uint8_t pos_or_len=0);
@@ -27,7 +27,7 @@ private:
 //    uint32_t m_tilt_pulses[DLP_MAX_PULSES];
 //    uint32_t m_focus_pulses[DLP_MAX_PULSES];
 //    uint32_t m_zoom_pulses[DLP_MAX_PULSES];
-    uint32_t m_dev_pulses[4][DLP_MAX_PULSES];
+    uint16_t m_dev_pulses[4][DLP_MAX_PULSES];
     uint16_t m_counter;
 
 };

@@ -7,7 +7,7 @@ trigger of synchronizing signal
 */
 
 ///Debug Macro
-//#define DLP_EXT_SYNC 1             //test-server.cpp
+#define DLP_EXT_SYNC 1             //test-server.cpp
 //#define DLP_TIMER_SYNC 1           //test-server.cpp
 //#define DLP_SENSOR 1          //void IEncoder::CounterInit()
 //#define DLP_CANOPEN_CODER 1 //csystem::CollectSysData()

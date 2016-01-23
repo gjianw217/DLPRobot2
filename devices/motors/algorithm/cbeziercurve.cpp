@@ -27,12 +27,13 @@ CBezierCurve::~CBezierCurve()
 
 int CBezierCurve::CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *pwm)
 {
-    dlp_log(DLP_LOG_DEBUG,"CSCurve::CreatePulseCurve");
+    dlp_log(DLP_LOG_DEBUG,"CSCurve::CreatePulseCurve(B)");
 
     int ret,sums,steps;
     uint32_t frames;
-    uint16_t refPulse[50]={0};
-    uint32_t pulses[50]={0};;
+    uint16_t refPulse[BORDERNUM]={0};
+//    uint32_t pulses[50]={0};;
+    uint32_t *pulses=pwm;
 
     if(0==time)
     {

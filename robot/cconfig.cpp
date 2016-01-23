@@ -200,7 +200,7 @@ void CConfig::Init()
 	//pan sensor
 	rapidxml::xml_node<>* pansensor =   doc.allocate_node(rapidxml::node_element,"pansensor",NULL);
 	pansensor->append_node(doc.allocate_node(rapidxml::node_element,"name","pansensor"));
-	pansensor->append_node(doc.allocate_node(rapidxml::node_element,"id","21")); //0x21==31
+	pansensor->append_node(doc.allocate_node(rapidxml::node_element,"id","20")); //0x20==32
 	pansensor->append_node(doc.allocate_node(rapidxml::node_element,"type","2"));//
 	pansensor->append_node(doc.allocate_node(rapidxml::node_element,"mode","22"));//34
 	pansensor->append_node(doc.allocate_node(rapidxml::node_element,"baud1","F"));//1M

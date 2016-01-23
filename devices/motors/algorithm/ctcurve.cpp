@@ -5,7 +5,7 @@
 #include "ctcurve.h"
 #include "../../../utils/cconverter.h"
 //#define TORDERNUM 10
-#define DLP_MAX_FRAMES 200
+//#define DLP_MAX_FRAMES 200
 
 CTCurve::CTCurve():ICurve()
 {
@@ -31,7 +31,7 @@ int CTCurve::CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *
     dlp_log(DLP_LOG_DEBUG,"CTCurve::CreatePulseCurve");
     int ret,sums,steps;
     uint32_t frames;
-    uint16_t refPulse[DLP_MAX_FRAMES+1]={0};
+    uint16_t refPulse[TORDERNUM+1]={0};
    // uint32_t ppwm[DLP_MAX_FRAMES+1]={0};;
     uint32_t *ppwm=pwm;
     if(0==time)
@@ -45,12 +45,12 @@ int CTCurve::CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *
         frames=ComputeFrameswithTime(time,angle,ppwm);
     }
 #ifdef DLP_DEBUG
-    std::cout<<"show --------------"<<std::endl;
+    std::cout<<"[msg] show --------------"<<std::endl;
     for(int i=0;i<frames;i++)
     {
-        std::cout<<ppwm[i]<<std::endl;
+        std::cout<<"[msg] "<<ppwm[i]<<std::endl;
     }
-    std::cout<<"end ................"<<std::endl;
+    std::cout<<"[msg] end ................"<<std::endl;
 #endif // DLP_DEBUG
 
 	return 0;
@@ -70,11 +70,9 @@ int CTCurve::CreateRefPulses(uint16_t *pulses)
         //pulses[i-1]=(m_attr.max_speed-m_attr.min_speed)*(2*i-1)/(2*TORDERNUM)+m_attr.min_speed;
         pulses[i]=(m_attr.g.max_speed-m_attr.g.min_speed)*(i)/(TORDERNUM)+m_attr.g.min_speed;
         sum+=pulses[i];
-        std::cout<<pulses[i]<<"--";
+        //std::cout<<pulses[i]<<"--";
 
     }
-
-    std::cout<<std::endl;
 
     return  2*sum;  //sum pulses
 }
@@ -94,9 +92,9 @@ uint32_t CTCurve::Angle2Step(const float &value)
     uint32_t step = (uint32_t)(angle*m_attr.g.gear[1]/m_attr.g.gear[0]/step_angle);
 
 #ifdef DLP_DEBUG
-    std::cout<<"Request Angles "<< angle<<" to Steps "<<step<<std::endl;
-    std::cout<<"gear[1] "<<m_attr.g.gear[1]<<" gear[0] "<<m_attr.g.gear[0]<<std::endl;
-    std::cout<<"step angle "<<step_angle<<std::endl;
+    std::cout<<"[msg] Request Angles "<< angle<<" to Steps "<<step<<std::endl;
+    std::cout<<"[msg] gear[1] "<<m_attr.g.gear[1]<<" gear[0] "<<m_attr.g.gear[0]<<std::endl;
+    std::cout<<"[msg] step angle "<<step_angle<<std::endl;
 #endif // DLP_DEBUG
 
     return step ;

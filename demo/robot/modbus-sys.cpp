@@ -37,7 +37,7 @@ void SyncHandler(int signum)
     //collection the data  of the coders
     psystem->CollectSysData();
     psystem->ConvertSysPulse();
-    psystem->AmendSysPulse();
+   // psystem->AmendSysPulse();
     psystem->ControlSysMotion();
 
     //update the drivers pulses at the frame
@@ -50,11 +50,11 @@ void SyncHandler(int signum)
 }
 void SyncStart()
 {
-#ifdef DLP_EXT_SYNC    
-	
+#ifdef DLP_EXT_SYNC
+
 	int flag,fd;
     signal(SIGIO,SyncHandler);
-
+  #ifdef DLP_ARM_LINUX
     fd = open("/dev/gpiop923",O_RDWR);
     if (fd < 0)
     {
@@ -64,7 +64,7 @@ void SyncStart()
     flag = fcntl(fd,F_GETFL);
     fcntl(fd,F_SETFL,flag | FASYNC);
     printf("Startup Sync\n");
-
+   #endif // DLP_ARM_LINUX
 #endif // DLP_EXT_SYNC
 }
 

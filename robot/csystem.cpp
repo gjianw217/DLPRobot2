@@ -7,7 +7,7 @@
 #include "../devices/motors/cstepmotorbypwm.h"
 #include "../devices/motors/imotor.h"
 #include "../devices/switch/cproximityswitch.h"
-
+#include "../utils/cconverter.h"
 #include "../devices/motors/cdirection.h"
 #include "cmanagepulse.h"
 
@@ -49,8 +49,8 @@ void CSystem::Init()
 //		m_ptilt_motor=m_probot->GetMotor(role[1]);
 //		m_ptilt_switch=m_probot->GetSwitch(role[1]);
 
-		m_pfocus_coder=m_probot->GetCoder(role[2]);//Testing the motor amend algorithm
-		m_pfocus_motor=m_probot->GetMotor(role[2]);
+//		m_pfocus_coder=m_probot->GetCoder(role[2]);//Testing the motor amend algorithm
+//		m_pfocus_motor=m_probot->GetMotor(role[2]);
 //
 //		m_pzoom_coder=m_probot->GetCoder(role[3]);
 //		m_pzoom_motor=m_probot->GetMotor(role[3]);
@@ -64,22 +64,25 @@ void CSystem::Init()
 void CSystem::CollectSysData()
 {
 	dlp_log(DLP_LOG_DEBUG,"CSystem::CollectSysData()");
-//    SLock datalock(m_mutex);
-//	time_t time_stamp;                                                                /*<采集数据的时间戳*/
-//	uint16_t time_array[2]={0};                                                       /*<存放时间戳：低位，高位*/
-//	uint16_t *pdata=&this->m_pdatamapping->GetUnit()->tab_input_registers[SYSTEM|S_GET_DATAS];/*<存放采集数据的地址单元*/
-//    DLPRole role;
-//#ifdef DLP_CANOPEN_CODER
-//    role=DLP_PAN;
-//    this->m_ppan_coder=this->m_probot->GetCoder(role);
+    SLock datalock(m_mutex);
+	time_t time_stamp;                                                                /*<采集数据的时间戳*/
+	uint16_t time_array[2]={0};                                                       /*<存放时间戳：低位，高位*/
+	uint16_t *pdata=&this->m_pdatamapping->GetUnit()->tab_input_registers[SYSTEM|S_GET_DATAS];/*<存放采集数据的地址单元*/
+    DLPRole role;
+
+    role=DLP_PAN;
+    this->m_ppan_coder=this->m_probot->GetCoder(role);
+    this->m_ppan_coder->GetData(pdata);
+    //Debug
+    printf("pan coder %d,%d\n",pdata[1],pdata[0]);
+
 //    role=DLP_TILT;
 //    this->m_ptilt_coder=this->m_probot->GetCoder(role);
-//
-//    this->m_ppan_coder->GetData(pdata);
 //    this->m_ptilt_coder->GetData(pdata);
-//#endif // DLP_CAN_CODER
-//
-//#ifdef DLP_RS485_CODER
+#ifdef DLP_CANOPEN_CODER
+#endif // DLP_CAN_CODER
+
+
 //    role=DLP_FOCUS;
 //    this->m_pfocus_coder=this->m_probot->GetCoder(role);
 //    role=DLP_ZOOM;
@@ -87,13 +90,13 @@ void CSystem::CollectSysData()
 //
 //    this->m_pfocus_coder->GetData(pdata);
 //    this->m_pzoom_coder->GetData(pdata);
-//
-//#endif // DLP_RS485_CODER
-//
-//	更斗ש״戳*/
-//	time_stamp=time(NULL);
-//	u322u16(time_stamp,time_array);
-//	this->m_pdatamapping->SetInputRegisters(time_array,SYSTEM|(S_GET_DATAS+12),2);                     /*<加入时间戮*/
+#ifdef DLP_RS485_CODER
+#endif // DLP_RS485_CODER
+
+	//Update the timestamp
+	time_stamp=time(NULL);
+	u322u16(time_stamp,time_array);
+	this->m_pdatamapping->SetInputRegisters(time_array,SYSTEM|(S_GET_DATAS+12),2);                     /*<adding the timestamp*/
 
 }
 void CSystem::SysEStop()
@@ -198,10 +201,12 @@ void CSystem::ArmsTiltCheck()
 
 void CSystem::ControlSysMotion()//driver the step motor movement
 {
-   if(m_pmanage_pulse->CheckMotorPulse())
+  dlp_log(DLP_LOG_DEBUG,"CSystem::ControlSysMotion");
+   if(m_pmanage_pulse->IsPulses())
    {
+
         m_pmanage_pulse->UpdatePulseGroup();
-        m_pmanage_pulse->RunPulseGoup();
+        m_pmanage_pulse->RunPulseGroup();
 
    }
 
@@ -209,22 +214,21 @@ void CSystem::ControlSysMotion()//driver the step motor movement
 
 int CSystem::AmendSysPulse()
 {
-
+    dlp_log(DLP_LOG_DEBUG,"CSystem::AmendSysPulse()");
     DLPMotorPulse workmotor[4]={DLP_PULSE_PAN,DLP_PULSE_TILT,DLP_PULSE_ZOOM,DLP_PULSE_FOCUS}; /*<The current work of motor*/
     DLPMotorPulse amendmark[4]={DLP_PULSE_NO,DLP_PULSE_NO,DLP_PULSE_NO,DLP_PULSE_NO};         /*<Need to modify the motor*/
     uint16_t pamend_data[6]={0};
 
-    //float coder_angle=m_ppan_coder->GetCoderAngle();/*<Storing Coder angle and to judge the amend*/
+    float coder_angle=m_ppan_coder->GetCoderAngle();/*<Storing Coder angle and to judge the amend*/
     //debug test
-    float coder_angle=3.3;
+    //float coder_angle=3.3;
     if(m_pmanage_pulse->IsAmend(DLP_PULSE_PAN,coder_angle))
     {
+        std::cout<<"20160121 GetAmendParameter"<<std::endl;
         m_pmanage_pulse->GetAmendParameter(DLP_PULSE_PAN,pamend_data);
-        std::cout<<"20151225 GetAmendParameter"<<std::endl;
+        std::cout<<"20160121 GetAmendParameter"<<std::endl;
         m_ppan_motor->SetCmdAmendPulses(pamend_data);
-        std::cout<<"20151225 SetCmdAmendPulses"<<std::endl;
-        m_pmanage_pulse->SetConvertEnable(DLP_PULSE_PAN);
-        std::cout<<"20151225 SetConvertEnable"<<std::endl;
+        std::cout<<"20160121 SetConvertEnable"<<std::endl;
         ConvertSysPulse();
 
     }
@@ -253,21 +257,19 @@ int CSystem::AmendSysPulse()
 
 void CSystem::ConvertSysPulse()
 {
-    std::cout<<"ConvertSysPulse"<<std::endl;
-    std::cout<<m_pmanage_pulse->CheckCurveConvert(DLP_PULSE_PAN)<<std::endl;
-    std::cout<<m_ppan_motor->ReadCmd()<<std::endl;
+#ifdef DLP_DEBUG
+    std::cout<<"[msg] CSystem::ConvertSysPulse()"<<std::endl;
+    std::cout<<"[msg] convert enable(1) "<<m_pmanage_pulse->IsConvert(DLP_PULSE_PAN)<<std::endl;
+    std::cout<<"[msg] command counter "<<m_ppan_motor->ReadCmd()<<std::endl;
+#endif // DLP_DEBUG
 
-    if(m_pmanage_pulse->CheckCurveConvert(DLP_PULSE_PAN) //a enable variable control wether convert the command
+    if(m_pmanage_pulse->IsConvert(DLP_PULSE_PAN) //a enable variable control wether convert the command
         &&m_ppan_motor->ReadCmd())         //check whether there is control motor motion command
     {
+        uint32_t pulses[DLP_PULSE_MAX_FRAME]={0};//If a member variable,lead to segment errors
         m_ppan_motor->CmdConvertPulses();
-        std::cout<<"CmdConvertPulses"<<std::endl;
-        m_len=m_pfocus_motor->ReadPulses(m_pulses);
-        std::cout<<"ReadPulses"<<std::endl;
-
-        m_pmanage_pulse->UpdateCurvePulse(DLP_PULSE_PAN,//curve type T=1
-                                        m_len,m_pulses);
-        std::cout<<"UpdateCurvePulse"<<std::endl;
+        m_len=m_ppan_motor->ReadPulses(pulses);
+        m_pmanage_pulse->UpdateCurvePulse(DLP_PULSE_PAN,m_len,pulses);
 
     }
 

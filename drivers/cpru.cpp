@@ -46,18 +46,22 @@ void CPRU::Exit()
 void CPRU::Run(const uint32_t *pwm)
 {
 
+//unsigned int pwm[]={ 0,10, 1, 10 };
+    dlp_log(DLP_LOG_DEBUG," CPRU::Run()");
+
 #ifdef DLP_ARM_LINUX
     if(!this->m_name.compare("pru1"))
 	{
 		/* Load and execute binary on PRU */
-		prussdrv_pru_write_memory(PRUSS0_PRU1_DATARAM, 0, pwm, sizeof(unsigned int)*(4*10+3));
+		prussdrv_pru_write_memory(PRUSS0_PRU1_DATARAM, 0, pwm, 8);
 
 		prussdrv_exec_program (PRU_NUM1, "./prucode.bin");
 	}
 	else
 	{
 		/* Load and execute binary on PRU */
-		prussdrv_pru_write_memory(PRUSS0_PRU0_DATARAM, 0, pwm, sizeof(unsigned int)*(4*10+3));
+		//prussdrv_pru_write_memory(PRUSS0_PRU0_DATARAM, 0, pwm, sizeof(unsigned int)*(4*10+3));
+		prussdrv_pru_write_memory(PRUSS0_PRU0_DATARAM, 0, pwm, 8);
 		prussdrv_exec_program (PRU_NUM0, "./pwm0.bin");
 
 	}

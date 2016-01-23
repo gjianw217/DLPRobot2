@@ -1,7 +1,6 @@
 #ifndef DLP_DEVICES_MOTORS_CStepMotor_H_
 #define DLP_DEVICES_MOTORS_CStepMotor_H_
 #include "imotor.h"
-#define PWM_ORDER 10
 
 class CStepMotor:public IMotor
 {
@@ -28,7 +27,7 @@ protected:
 private:
 	PCPRU m_ppru;
 	//PCPWM m_ppwm;
-	uint32_t m_pwm_array[4000];//{360/(1.8/(128*56))}/740=1937 ==> 4000=2000*2
+	uint32_t m_pwm_array[DLP_PULSE_MAX_FRAME];//{360/(1.8/(128*56))}/740=1937 ==> 4000=2000*2
 
 };
 #endif//DLP_DEVICES_MOTORS_CStepMotor_H_

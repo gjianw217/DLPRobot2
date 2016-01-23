@@ -26,8 +26,8 @@ int CCANCoder::GetData(uint16_t *data)
 	std::cout<<"CCANCoder::GetData:"<<data[0]<<":";
 	m_angle=this->m_pcounter->GetAngle();          /*Save the encoder turned Angle*/
 	//std::cout<<m_angle<<":";
-	//m_angle=m_angle*m_attr.dlp_gear[1]/m_attr.dlp_gear[0];
-	//std::cout<<m_angle<<":"<<std::endl;
+	m_angle=m_angle*m_attr.dlp_gear[1]/m_attr.dlp_gear[0];
+	std::cout<<m_angle<<":"<<std::endl;
 	return ret;
 }
 

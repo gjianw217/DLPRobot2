@@ -19,7 +19,7 @@
 */
 CStepMotor::CStepMotor():IMotor()
 {
-	memset(this->m_pwm_array,0,(4*PWM_ORDER+3)*sizeof(uint32_t));
+	memset(this->m_pwm_array,0,DLP_PULSE_MAX_FRAME*sizeof(uint32_t));
 	m_ppru=PCPRU(new CPRU("pru1"));
 }
 
@@ -30,7 +30,7 @@ CStepMotor::CStepMotor( std::string pru_pin):IMotor()
 {
 
 	m_ppru=PCPRU(new CPRU("pru0")); //Test Used
-	memset(this->m_pwm_array,0,(4*PWM_ORDER+3)*sizeof(uint32_t));
+	memset(this->m_pwm_array,0,DLP_PULSE_MAX_FRAME*sizeof(uint32_t));
 }
 
 CStepMotor::~CStepMotor()
@@ -69,7 +69,7 @@ void CStepMotor::CmdConvertPulses()
         dlp_log(DLP_LOG_ERR,"Not Setting the curve algorithm for the motor");
         return;
     }
-    dlp_log(DLP_LOG_DEBUG,"CStepMotor::CmdConvertPulses()");
+    dlp_log(DLP_LOG_DEBUG,"CStepMotor::CmdConvertPulses(T)");
 
     DLPModbusCmd cmd;
     uint32_t time=0;
@@ -83,17 +83,18 @@ void CStepMotor::CmdConvertPulses()
     time(s)   time(ms) angle(integer) angle(decimal)  direction
     */
     angle=static_cast<float>(cmd.cmd_data[2]+cmd.cmd_data[1]*0.001);;
-    time=cmd.cmd_data[4]*1000+cmd.cmd_data[3];
+    //time=cmd.cmd_data[4]*1000+cmd.cmd_data[3];
+
 #ifdef DLP_DEBUG
     std::cout<<"angle:"<<angle<<"time:"<<time<<std::endl;
 #endif // DLP_DEBUG
     m_pcurve->CreatePulseCurve(time,angle,m_pwm_array);
 
     //Test Used----------------------------------------------------
-    if (m_ppru)
-	{
-		m_ppru->Run(m_pwm_array);
-	}
+//    if (m_ppru)
+//	{
+//		m_ppru->Run(m_pwm_array);
+//	}
 }
 
 /**
@@ -103,6 +104,8 @@ void CStepMotor::CmdConvertPulses()
 */
 int CStepMotor::ReadPulses(uint32_t *des)
 {
+    dlp_log(DLP_LOG_DEBUG,"CStepMotor::ReadPulses");
+
     if(des!=NULL)
     {
         for(int i=0;i<m_pwm_array[0]+1;i++)
@@ -245,21 +248,21 @@ void CStepMotor::RunByTime(const double &time,const double &angle,const uint16_t
 void CStepMotor::EmergencyStop()
 {
     dlp_log(DLP_LOG_DEBUG,"CStepMotor::EmergencyStop()");
-    uint32_t testpwm[4+3]={7,0,0,0,0,0,0} ;
-	if (m_ppru)
-	{
-		m_ppru->Run(testpwm);
-	}
-	if(m_pdirection)
-	{
-        m_pdirection->SetDirValue(0);
-	}
+//    uint32_t testpwm[4+3]={7,0,0,0,0,0,0} ;
+//	if (m_ppru)
+//	{
+//		m_ppru->Run(testpwm);
+//	}
+//	if(m_pdirection)
+//	{
+//        m_pdirection->SetDirValue(0);
+//	}
 }
 /**@deprecated*/
 void CStepMotor::ReturnRefOrigin()
 {
     dlp_log(DLP_LOG_DEBUG,"CStepMotor::ReturnRefOrigin()");
-    uint32_t testpwm[4*PWM_ORDER+3]={10,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1} ;
+    uint32_t testpwm[4*10+3]={10,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1,50000000,1} ;
 	if (m_ppru)
 	{
 		m_ppru->Run(testpwm);

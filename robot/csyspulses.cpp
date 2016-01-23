@@ -1,7 +1,7 @@
 #include "csyspulses.h"
 #include <string.h>
 #include "../drivers/cpru.h"
-
+#include "../utils/cdebug.h"
 /*Run the equipment of pulse*/
 CSysPulses::CSysPulses()
 {
@@ -44,17 +44,22 @@ void     CSysPulses::ReadPulseGroup(uint32_t *des,const uint8_t &len)
     }
 }
 
-void     CSysPulses::WritePulseGroup(const uint32_t *src,const uint8_t &len)
+void  CSysPulses::WritePulseGroup(const uint32_t *src,const uint8_t &len)
 {
+    dlp_log(DLP_LOG_DEBUG,"CSysPulses::WritePulseGroup");
     if((len>=0)&&(len<=8)&&(src!=NULL))
     {
-        int i;
-        for(i=0;i<len;i++)
+
+        for(int i=0;i<len;i++)
         {
             m_pulses[i]=src[i];
+            #ifdef DLP_DEBUG
+             std::cout<<"[msg] Cmd Group "<<m_pulses[i]<<std::endl;
+            #endif // DLP_DEBUG
+
+            //std::cout<<src[i]<<std::endl;
 
         }
-
     }
 
 }
@@ -62,5 +67,6 @@ void     CSysPulses::WritePulseGroup(const uint32_t *src,const uint8_t &len)
 
 void CSysPulses::RunPulseGroups()
 {
+    dlp_log(DLP_LOG_DEBUG," CSysPulses::RunPulseGroups()");
     m_ppru->Run(m_pulses);
 }

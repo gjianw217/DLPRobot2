@@ -66,7 +66,7 @@ private:
     PCManagePulse m_pmanage_pulse;
 private:
 	uint16_t m_data[5];//save the coder value respectively
-    uint32_t m_pulses[100];
+    //uint32_t m_pulses[DLP_PULSE_MAX_FRAME];
     uint32_t m_len;
 
 };

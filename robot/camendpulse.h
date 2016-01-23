@@ -33,7 +33,7 @@ private:
     float m_init_time[4];
     uint16_t m_amend_angle[4][2];
     float m_init_angle[4];
-    uint32_t m_dev_pulses[4][DLP_PULSE_MAX];
+    uint32_t m_dev_pulses[4][DLP_PULSE_MAX_FRAME];
 
 };
 

@@ -928,11 +928,11 @@
 
 1433731731 /home/dlp/develop/project/DLPRobot2/dlp/dlpudp.h
 
-1450249904 /home/dlp/develop/project/DLPRobot2/dlp/dlpmacro.h
+1453369642 /home/dlp/develop/project/DLPRobot2/dlp/dlpmacro.h
 
 1450249745 /home/dlp/develop/project/DLPRobot2/dlp/dlpenum.h
 
-1452504128 /home/dlp/develop/project/DLPRobot2/dlp/dlpalgorithm.h
+1453514927 /home/dlp/develop/project/DLPRobot2/dlp/dlpalgorithm.h
 	<stdint.h>
 
 1433731731 /home/dlp/develop/project/DLPRobot2/network/modbus/modbus.h
@@ -960,7 +960,7 @@
 
 1433731731 /home/dlp/develop/project/DLPRobot2/devices/encoder/csensorcounter.h
 
-1452651868 /home/dlp/develop/project/DLPRobot2/devices/motors/cstepmotor.h
+1453514343 /home/dlp/develop/project/DLPRobot2/devices/motors/cstepmotor.h
 	"imotor.h"
 
 1450951436 /home/dlp/develop/project/DLPRobot2/devices/motors/imotor.h
@@ -971,7 +971,7 @@
 1444209419 /home/dlp/develop/project/DLPRobot2/utils/cdelay.h
 	<stdint.h>
 
-1451558114 source:/home/dlp/develop/project/DLPRobot2/demo/robot/modbus-sys.cpp
+1453519410 source:/home/dlp/develop/project/DLPRobot2/demo/robot/modbus-sys.cpp
 	"../../dlp/dlp.h"
 	"../../utils/cdelay.h"
 	"../../utils/casynchrtimer.h"
@@ -998,7 +998,7 @@
 	<boost/function.hpp>
 	<boost/thread.hpp>
 
-1451297832 /home/dlp/develop/project/DLPRobot2/robot/csystem.h
+1453519235 /home/dlp/develop/project/DLPRobot2/robot/csystem.h
 	"../dlp/dlp.h"
 	<boost/thread.hpp>
 	<boost/thread/locks.hpp>
@@ -1045,7 +1045,7 @@
 1444645081 /home/dlp/develop/project/DLPRobot2/network/cnetwork.h
 	"../dlp/dlp.h"
 
-1443434148 source:/home/dlp/develop/project/DLPRobot2/devices/encoder/ccancoder.cpp
+1453371552 source:/home/dlp/develop/project/DLPRobot2/devices/encoder/ccancoder.cpp
 	"ccancoder.h"
 	"../../drivers/ccan.h"
 
@@ -1095,7 +1095,7 @@
 	"iencoder.h"
 	<cmath>
 
-1452674945 source:/home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/clcurve.cpp
+1453444966 source:/home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/clcurve.cpp
 	"clcurve.h"
 	<stdio.h>
 	<math.h>
@@ -1129,14 +1129,14 @@
 1433899307 /home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/crotationany.h
 	"irotation.h"
 
-1452676894 source:/home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/cscurve.cpp
+1453514927 source:/home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/cscurve.cpp
 	"cscurve.h"
 	"../../../utils/cconverter.h"
 
 1452152514 /home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/cscurve.h
 	"icurve.h"
 
-1452676405 source:/home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/ctcurve.cpp
+1453514642 source:/home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/ctcurve.cpp
 	<cmath>
 	<iostream>
 	<iomanip>
@@ -1220,7 +1220,7 @@
 	<boost/bind.hpp>
 	<boost/asio/deadline_timer.hpp>
 
-1452651868 source:/home/dlp/develop/project/DLPRobot2/devices/motors/cstepmotor.cpp
+1453517722 source:/home/dlp/develop/project/DLPRobot2/devices/motors/cstepmotor.cpp
 	<cstring>
 	"../../drivers/cpru.h"
 	"../../drivers/cpwm.h"
@@ -1279,7 +1279,7 @@
 
 1433731731 source:/home/dlp/develop/project/DLPRobot2/drivers/ci2c.cpp
 
-1450408094 source:/home/dlp/develop/project/DLPRobot2/drivers/cpru.cpp
+1453520989 source:/home/dlp/develop/project/DLPRobot2/drivers/cpru.cpp
 	"cpru.h"
 	"../utils/cdebug.h"
 
@@ -1508,34 +1508,36 @@
 	"../network/cdata-mapping.h"
 	<sstream>
 
-1452674351 source:/home/dlp/develop/project/DLPRobot2/robot/camendpulse.cpp
+1453372587 source:/home/dlp/develop/project/DLPRobot2/robot/camendpulse.cpp
 	"camendpulse.h"
 	"../utils/cconverter.h"
 	<string.h>
 	<cmath>
 
-1451289736 /home/dlp/develop/project/DLPRobot2/robot/camendpulse.h
+1453515568 /home/dlp/develop/project/DLPRobot2/robot/camendpulse.h
 	"../dlp/dlp.h"
 
-1451382445 source:/home/dlp/develop/project/DLPRobot2/robot/cconfig.cpp
+1453370775 source:/home/dlp/develop/project/DLPRobot2/robot/cconfig.cpp
 	"cconfig.h"
 	<iostream>
 
-1450779872 source:/home/dlp/develop/project/DLPRobot2/robot/cdevpulses.cpp
+1453521029 source:/home/dlp/develop/project/DLPRobot2/robot/cdevpulses.cpp
 	"cdevpulses.h"
 	<string.h>
+	"../utils/cdebug.h"
 
-1451015627 /home/dlp/develop/project/DLPRobot2/robot/cdevpulses.h
+1453455508 /home/dlp/develop/project/DLPRobot2/robot/cdevpulses.h
 	"../dlp/dlp.h"
 	<map>
 
-1451297427 source:/home/dlp/develop/project/DLPRobot2/robot/cmanagepulse.cpp
+1453521039 source:/home/dlp/develop/project/DLPRobot2/robot/cmanagepulse.cpp
 	"cmanagepulse.h"
 	"csyspulses.h"
 	"cdevpulses.h"
 	"camendpulse.h"
+	"../utils/cdebug.h"
 
-1451289454 /home/dlp/develop/project/DLPRobot2/robot/cmanagepulse.h
+1453460484 /home/dlp/develop/project/DLPRobot2/robot/cmanagepulse.h
 	"../dlp/dlp.h"
 	<map>
 
@@ -1553,12 +1555,13 @@
 	"../devices/switch/cproximityswitch.h"
 	"../utils/cdebug.h"
 
-1451015627 source:/home/dlp/develop/project/DLPRobot2/robot/csyspulses.cpp
+1453521067 source:/home/dlp/develop/project/DLPRobot2/robot/csyspulses.cpp
 	"csyspulses.h"
 	<string.h>
 	"../drivers/cpru.h"
+	"../utils/cdebug.h"
 
-1452674381 source:/home/dlp/develop/project/DLPRobot2/robot/csystem.cpp
+1453520989 source:/home/dlp/develop/project/DLPRobot2/robot/csystem.cpp
 	"crobot.h"
 	"csystem.h"
 	"../network/cdata-mapping.h"
@@ -1568,6 +1571,7 @@
 	"../devices/motors/cstepmotorbypwm.h"
 	"../devices/motors/imotor.h"
 	"../devices/switch/cproximityswitch.h"
+	"../utils/cconverter.h"
 	"../devices/motors/cdirection.h"
 	"cmanagepulse.h"
 
@@ -1587,7 +1591,7 @@
 	"../utils/cconverter.h"
 	"cpantask.h"
 
-1451547868 source:/home/dlp/develop/project/DLPRobot2/task/csystask.cpp
+1452743318 source:/home/dlp/develop/project/DLPRobot2/task/csystask.cpp
 	"../robot/crobot.h"
 	"local/crefresh.h"
 	"../robot/csystem.h"
@@ -1665,7 +1669,7 @@
 1442465022 source:/home/dlp/develop/project/DLPRobot2/utils/ctaskthread.cpp
 	"ctaskthread.h"
 
-1452680094 source:/home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/cbeziercurve.cpp
+1453515171 source:/home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/cbeziercurve.cpp
 	"cbeziercurve.h"
 	"../../../utils/cconverter.h"
 

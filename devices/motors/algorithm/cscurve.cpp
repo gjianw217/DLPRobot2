@@ -21,11 +21,11 @@ CSCurve::~CSCurve()
 */
 int CSCurve::CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *pwm)
 {
-    dlp_log(DLP_LOG_DEBUG,"CSCurve::CreatePulseCurve");
+    dlp_log(DLP_LOG_DEBUG,"CSCurve::CreatePulseCurve(S)");
 
     int ret,sums,steps;
     uint32_t frames;
-    uint16_t refPulse[DLP_SMAX_FRAMES+1]={0};
+    uint16_t refPulse[SORDERNUM+1]={0};
     uint16_t refSubPulse[3]={0};
     uint16_t refSubfrmaes[3]={0};
     uint32_t *pulses=pwm;//[DLP_SMAX_FRAMES+1]={0};;
