@@ -222,6 +222,7 @@ int CSystem::AmendSysPulse()
     float coder_angle=m_ppan_coder->GetCoderAngle();/*<Storing Coder angle and to judge the amend*/
     //debug test
     //float coder_angle=3.3;
+    std::cout<<" CSystem::AmendSysPulse() "<<"coder->GetCoderAngle()"<<coder_angle<<std::endl;
     if(m_pmanage_pulse->IsAmend(DLP_PULSE_PAN,coder_angle))
     {
         std::cout<<"20160121 GetAmendParameter"<<std::endl;
@@ -260,17 +261,18 @@ void CSystem::ConvertSysPulse()
 #ifdef DLP_DEBUG
     std::cout<<"[msg] CSystem::ConvertSysPulse()"<<std::endl;
     std::cout<<"[msg] convert enable(1) "<<m_pmanage_pulse->IsConvert(DLP_PULSE_PAN)<<std::endl;
-    std::cout<<"[msg] command counter "<<m_ppan_motor->ReadCmd()<<std::endl;
+    std::cout<<"[msg] command counter "<<m_ppan_motor->ReadCmdSize()<<std::endl;
 #endif // DLP_DEBUG
 
     if(m_pmanage_pulse->IsConvert(DLP_PULSE_PAN) //a enable variable control wether convert the command
-        &&m_ppan_motor->ReadCmd())         //check whether there is control motor motion command
+        &&m_ppan_motor->ReadCmdSize())         //check whether there is control motor motion command
     {
         uint32_t pulses[DLP_PULSE_MAX_FRAME]={0};//If a member variable,lead to segment errors
         m_ppan_motor->CmdConvertPulses();
         m_len=m_ppan_motor->ReadPulses(pulses);
         m_pmanage_pulse->UpdateCurvePulse(DLP_PULSE_PAN,m_len,pulses);
-
+        float coder_angle=m_ppan_coder->GetCoderAngle();/*<Storing Coder angle and make it the base value*/
+        m_pmanage_pulse->UpdateCurveAngle(DLP_PULSE_PAN,coder_angle);;
     }
 
 //    if(m_pmanage_pulse->CheckCurveConvert(DLP_PULSE_PAN))

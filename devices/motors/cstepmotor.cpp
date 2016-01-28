@@ -42,7 +42,7 @@ CStepMotor::~CStepMotor()
 * @brief Check whether there is any commands(not executing) in the command queue.
 * @return the acount of the command in the command queue.
 **/
-int CStepMotor::ReadCmd()
+int CStepMotor::ReadCmdSize()
 {
     return m_curve_cmds.size();
 }
@@ -53,7 +53,7 @@ int CStepMotor::ReadCmd()
 void CStepMotor::WriteCmd(DLPModbusCmd &cmd)
 {
     dlp_log(DLP_LOG_DEBUG,"CStepMotor::WriteCmd");
-    this->m_curve_cmds.push_back(cmd);
+    this->m_curve_cmds.push_back(cmd);//adding the tail of the queue
 
     //CmdConvertPulses();
 }
@@ -75,7 +75,7 @@ void CStepMotor::CmdConvertPulses()
     uint32_t time=0;
     float angle=0.0;
 
-    cmd = m_curve_cmds.at(m_curve_cmds.size() -1);
+    cmd = m_curve_cmds.at(0);      //get the head of the queue
     this->m_curve_cmds.pop_front();
 
     /**

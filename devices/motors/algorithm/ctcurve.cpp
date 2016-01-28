@@ -46,7 +46,7 @@ int CTCurve::CreatePulseCurve(const uint32_t time,const double &angle,uint32_t *
     }
 #ifdef DLP_DEBUG
     std::cout<<"[msg] show --------------"<<std::endl;
-    for(int i=0;i<frames;i++)
+    for(int i=0;i<frames+1;i++)
     {
         std::cout<<"[msg] "<<ppwm[i]<<std::endl;
     }
@@ -176,6 +176,7 @@ int CTCurve::ComputeFrames(const uint32_t &steps,const uint16_t &ref_sum,const u
 		pulses[frames]=step_num/2;
 		pulses[frames+1]=step_num/2;
 
+        frames=2*frames;
 	  }//else
 
     return frames;

@@ -5,7 +5,7 @@
 CDevPulses::CDevPulses()
 {
     memset(m_dev_pulses, 0, sizeof(m_dev_pulses));
-    m_counter=1;
+    m_counter=0;
 }
 
 CDevPulses::~CDevPulses()
@@ -14,7 +14,7 @@ CDevPulses::~CDevPulses()
 }
 int CDevPulses::ReadDevPulse(const DLPMotorPulse &type,const uint8_t &pos)
 {
-    if(!check_para(type,pos))
+    if(check_para(type,pos))
         return m_dev_pulses[type][pos];
     else
         return -1;
@@ -23,7 +23,7 @@ int CDevPulses::ReadDevPulse(const DLPMotorPulse &type,const uint8_t &pos)
 
 void     CDevPulses::WriteDevPulse(const DLPMotorPulse &type,const uint8_t &pos,const uint32_t &value)
 {
-   if(!check_para(type,pos))
+   if(check_para(type,pos))
    {
         m_dev_pulses[type][pos]=value;
    }
@@ -31,12 +31,14 @@ void     CDevPulses::WriteDevPulse(const DLPMotorPulse &type,const uint8_t &pos,
 
 void     CDevPulses::ReadDevPulsesCurve(const DLPMotorPulse &type,const uint8_t &len,uint32_t *des)
 {
-    if(!check_para(type,len))
+    dlp_log(DLP_LOG_DEBUG," CDevPulses::ReadDevPulsesCurve");
+    if(check_para(type,len))
     {
         int i,j;
         for(i=0;i<len;i++)
         {
             des[i]=m_dev_pulses[type][i];
+
         }
 
     }
@@ -44,12 +46,19 @@ void     CDevPulses::ReadDevPulsesCurve(const DLPMotorPulse &type,const uint8_t 
 
 void     CDevPulses::WriteDevPulsesCurve(const DLPMotorPulse &type,const uint8_t &len,const uint32_t *src)
 {
-    if(!check_para(type,len))
+    dlp_log(DLP_LOG_DEBUG," CDevPulses::WriteDevPulsesCurve");
+
+    if(check_para(type,len))
     {
         int i,j;
         for(i=0;i<len;i++)
         {
             m_dev_pulses[type][i]=src[i];
+            #ifdef DLP_DEBUG
+//            std::cout<<"CDevPulses::ReadDevPulsesCurve"<<m_dev_pulses[type][i]<<std::endl;
+            #endif // DLP_DEBUG
+            std::cout<<"CDevPulses::WriteDevPulsesCurve"<<m_dev_pulses[type][i]<<std::endl;
+
         }
     }
 }
@@ -93,10 +102,19 @@ void CDevPulses::ReadPulseGroup(uint32_t *des)
 
 int      CDevPulses::check_para(const DLPMotorPulse &type,const uint8_t pos_or_len)
 {
-    if((type>DLP_PULSE_NO)&&(type<DLP_PULSE_MAX)&&(pos_or_len>=0)&&(pos_or_len<DLP_MAX_PULSES))
-        return 0;
+    if((type>DLP_PULSE_NO)&&(type<DLP_PULSE_MAX)&&(pos_or_len>1)&&(pos_or_len<DLP_MAX_PULSES))
+     {
+        return 1;
+     }
     else
-        return -1;
+    {
+        #ifdef DLP_DEBUG
+        std::cout<<"check_para: "<<type<<":"<<pos_or_len<<std::endl;
+        printf(" check_para %d,len %d\n",type,pos_or_len);
+        #endif // DLP_DEBUG
+        return 0;
+    }
+
 
 
 }

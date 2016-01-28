@@ -4,7 +4,7 @@
 #include "../dlp/dlp.h"
 #include <map>
 
-#define DLP_MAX_PULSES 300
+
 /*Save all the equipment of pulse*/
 class CDevPulses
 {

@@ -35,9 +35,10 @@ void SyncHandler(int signum)
     //printf("AF..%d..%d\n",start.tv_sec,start.tv_usec);
 
     //collection the data  of the coders
+    std::cout<<"------------------------------------------------------------------------------------------------------"<<std::endl;
     psystem->CollectSysData();
     psystem->ConvertSysPulse();
-   // psystem->AmendSysPulse();
+    psystem->AmendSysPulse();
     psystem->ControlSysMotion();
 
     //update the drivers pulses at the frame

@@ -27,7 +27,7 @@ void CPanPart::Init()
         /*Parsing the encoder configuration file attributes*/
         parseCoderAttr(cattr);
         m_pcoder->Config(cattr);
-		m_pcoder->CounterInit(false);///////////////////////////
+		m_pcoder->CounterInit(true);///////////////////////////
     }
 
     /*Whether motor conditions are satisfied*/

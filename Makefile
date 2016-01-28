@@ -1,7 +1,7 @@
 ###########################################
 # Main Makefile
 #                            By Guo Jianwei
-#                                2015-10-12
+#                                2016-01-28
 #                  EMAIL: gjianw217@163.com
 ###########################################
 OBJ=main.o\
@@ -87,14 +87,15 @@ TARGET=bin/ModbusServer
 
 INC=-I./library/include 
 BBB=LINUX
+b=MYDEBUG
 CFLAGS=$(CFLAG)
 ifeq ($(BBB),LINUX)
 	CXX=g++
 	LIB=-L/usr/local/lib
-	CFLAGS+=-DDLP_DEBUG -DDLP_LINUX
+	CFLAGS+=-D$(b) -DDLP_LINUX
 else
 	CXX =arm-linux-g++
-	CFLAGS+=-DDLP_DEBUG -DDLP_ARM_LINX 
+	CFLAGS+=-D$(b) -DDLP_ARM_LINX 
 	LIB=-L./library/lib
 endif
 CFLAGS += -O2 -g -Wall -lboost_thread -lboost_system -lboost_atomic -lpthread -lboost_chrono -lboost_regex

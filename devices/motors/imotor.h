@@ -25,7 +25,7 @@ public:
 	///////////////////////////////////////
 
 	    /***/
-    virtual int ReadCmd()=0;
+    virtual int ReadCmdSize()=0;
     virtual void WriteCmd( DLPModbusCmd &cmd)=0;;
     virtual void CmdConvertPulses()=0;;
     virtual int ReadPulses(uint32_t *des)=0;;

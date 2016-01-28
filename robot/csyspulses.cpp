@@ -54,7 +54,7 @@ void  CSysPulses::WritePulseGroup(const uint32_t *src,const uint8_t &len)
         {
             m_pulses[i]=src[i];
             #ifdef DLP_DEBUG
-             std::cout<<"[msg] Cmd Group "<<m_pulses[i]<<std::endl;
+             std::cout<<"[msg]  CSysPulses::WritePulseGroup Cmd Group "<<m_pulses[i]<<std::endl;
             #endif // DLP_DEBUG
 
             //std::cout<<src[i]<<std::endl;

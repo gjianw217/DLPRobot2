@@ -1,7 +1,7 @@
 ###########################################
 # network Makefile
 #                            By Guo Jianwei
-#                                2015-06-10
+#                                2016-01-28
 #                  EMAIL: gjianw217@163.com
 ###########################################
 OBJCXX=cdata-mapping.o\
@@ -15,15 +15,16 @@ OBJ= modbus/modbus.o\
      modbus/modbus-tcp.o
 INC=-I../library/include
 BBB=LINUX
+b=MYDEBUG
 CFLAGS=$(CFLAG)
 ifeq ($(BBB),LINUX)
 	CXX=g++
 	CC=gcc
-	CFLAGS+=-DDLP_DEBUG -DLP_LINUX 
+	CFLAGS+=-D$(b) -DLP_LINUX 
 else
 	CXX=arm-linux-g++
 	CC=arm-linux-gcc
-	CFLAGS+=-DDLP_DEBUG -DDLP_ARM_LINUX
+	CFLAGS+=-D$(b) -DDLP_ARM_LINUX
 endif
 
 CFLAGS += -O2 -g -Wall

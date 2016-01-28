@@ -1,7 +1,7 @@
 ###########################################
 # devices/motors Makefile
 #                            By Guo Jianwei
-#                                2015-10-08
+#                                2016-01-28
 #                  EMAIL: gjianw217@163.com
 ###########################################
 OBJ=cdirection.o\
@@ -24,13 +24,14 @@ OBJ=cdirection.o\
 
 INC=-I../../library/include
 BBB=LINUX
+b=MYDEBUG
 CFLAGS=$(CFLAG)
 ifeq ($(BBB),LINUX)
 	CXX=g++
-	CFLAGS+=-DDLP_DEBUG -DDLP_LINUX 
+	CFLAGS+=-D$(b) -DDLP_LINUX 
 else
 	CXX=arm-linux-g++
-	CFLAGS+=-DDLP_DEBUG -DDLP_ARM_LINUX
+	CFLAGS+=-D$(b) -DDLP_ARM_LINUX
 endif
 
 CFLAGS += -O2 -g -Wall

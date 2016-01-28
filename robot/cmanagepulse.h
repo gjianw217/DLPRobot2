@@ -24,7 +24,7 @@ public:
 	int IsPulses(void );
 	void GetAmendParameter(const DLPMotorPulse &type,uint16_t *time_angle);
 	void SetAmendParameter(const DLPMotorPulse &type,uint16_t *time_angle);
-
+    void UpdateCurveAngle(const DLPMotorPulse &type,const float &coder_angle);
 	//CDevPulses
 	void UpdateCurvePulse(const DLPMotorPulse &type,const uint8_t &len,const uint32_t *src);  //convert the angle into pulse according to the curve type
 

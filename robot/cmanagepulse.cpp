@@ -57,11 +57,19 @@ int CManagePulse::IsConvert(const DLPMotorPulse &type)
 */
 void CManagePulse::UpdateCurvePulse(const DLPMotorPulse &type,const uint8_t &len,const uint32_t *src)
 {
+    dlp_log(DLP_LOG_DEBUG,"CCManagePulse::UpdateCurvePulse");
     m_pdev_pulses->WriteDevPulsesCurve(type,len,src);
     m_pulse[type].angle_pulse_frame_sum=len;
     m_pulse[type].angle_pulse_frame_counter=0;
     m_pulse[type].cmd_convert_curve_enable=false;
     m_pulse[type].angle_pulse_existence=true;
+    m_pamend_pulses->SetDevCurvePulse(type,len,src);
+
+}
+void CManagePulse::UpdateCurveAngle(const DLPMotorPulse &type,const float &coder_angle)
+{
+    dlp_log(DLP_LOG_DEBUG,"CManagePulse::UpdateCurveAngle");
+    m_pamend_pulses->SetDevCoderAngle(type,coder_angle);
 
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -147,7 +155,7 @@ int CManagePulse::IsAmend(const DLPMotorPulse &type,const float &coder_angle)
 
 void CManagePulse::GetAmendParameter(const DLPMotorPulse &type,uint16_t *time_angle)
 {
-    //m_pamend_pulses->GetAmendParameter(type,time_angle);
+    m_pamend_pulses->GetAmendParameter(type,time_angle);
 
 }
 
@@ -159,7 +167,7 @@ void CManagePulse::SetAmendParameter(const DLPMotorPulse &type,uint16_t *time_an
 
 void CManagePulse::SetMotrAttr(const DLPMotorPulse &type,const DLPMotorAttr &mattr,const DLPEncoderAttr &eattr)
 {
-    //m_pamend_pulses->SetAmendAttr(type,mattr,eattr);
+    m_pamend_pulses->SetAmendAttr(type,mattr,eattr);
 
 }
 //////////////////////////////////////////////////////////

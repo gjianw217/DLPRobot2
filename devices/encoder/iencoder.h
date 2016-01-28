@@ -16,7 +16,7 @@ public:
 	virtual int SetBaudrate(const uint16_t &high_rate,const uint16_t &low_rate)=0;
 	virtual int SetID(const uint16_t &id)=0;
 
-	void CounterInit(const bool get_value);      //complete the initialization of encoder counter
+	void CounterInit(const bool get_value=false);      //complete the initialization of encoder counter
 	float GetCoderAngle();   //returns the current angle of encoder
 protected:
 	DLPEncoderAttr m_attr;
