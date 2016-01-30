@@ -39,12 +39,12 @@ private:
 
     DLPAmendAttr m_amend_attr[4];//Set Attribute by calling the SetAmendAttr
     float m_init_time[4];
-    float m_init_angle[4];
-    uint32_t m_dev_pulses[4][DLP_PULSE_MAX_FRAME];
-    uint32_t m_frame_index[4];
-    uint32_t m_frame_counter[4];
+    float m_init_angle[4];                         //init angle
+    uint32_t m_dev_pulses[4][DLP_PULSE_MAX_FRAME];//driver pulses
+    uint32_t m_frame_counter[4];                    //
+    uint32_t m_pulse_counter[4];                  //frame counter
 
-
+    uint16_t m_amend_enable[4];
     uint16_t m_amend_time[4][2];
     uint16_t m_amend_angle[4][2];
 

@@ -55,9 +55,9 @@ void     CDevPulses::WriteDevPulsesCurve(const DLPMotorPulse &type,const uint8_t
         {
             m_dev_pulses[type][i]=src[i];
             #ifdef DLP_DEBUG
-//            std::cout<<"CDevPulses::ReadDevPulsesCurve"<<m_dev_pulses[type][i]<<std::endl;
+            std::cout<<"CDevPulses::ReadDevPulsesCurve"<<m_dev_pulses[type][i]<<std::endl;
             #endif // DLP_DEBUG
-            std::cout<<"CDevPulses::WriteDevPulsesCurve"<<m_dev_pulses[type][i]<<std::endl;
+//            std::cout<<"CDevPulses::WriteDevPulsesCurve"<<m_dev_pulses[type][i]<<std::endl;
 
         }
     }

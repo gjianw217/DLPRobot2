@@ -53,7 +53,7 @@ void CPRU::Run(const uint32_t *pwm)
     if(!this->m_name.compare("pru1"))
 	{
 		/* Load and execute binary on PRU */
-		prussdrv_pru_write_memory(PRUSS0_PRU1_DATARAM, 0, pwm, 8);
+		prussdrv_pru_write_memory(PRUSS0_PRU1_DATARAM, 0, pwm, sizeof(unsigned int)*8);
 
 		prussdrv_exec_program (PRU_NUM1, "./prucode.bin");
 	}

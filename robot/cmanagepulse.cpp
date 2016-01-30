@@ -148,7 +148,8 @@ void CManagePulse::RunPulseGroup()      //run the step motor
 */
 int CManagePulse::IsAmend(const DLPMotorPulse &type,const float &coder_angle)
 {
-    return 0;//m_pamend_pulses->IsAmend(type,coder_angle);
+//    return 0;
+    return m_pamend_pulses->IsAmend(type,coder_angle);
 }
 
 
