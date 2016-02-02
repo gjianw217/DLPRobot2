@@ -1,0 +1,14 @@
+#ifndef DLP_DEVICES_MOTORS_CORRECTION_CCONTROLMOTOR_H_
+#define DLP_DEVICES_MOTORS_CORRECTION_CCONTROLMOTOR_H_
+
+class CControlMotor
+{
+public:
+    CControlMotor();
+    ~CControlMotor();
+
+private:
+
+};
+
+#endif //DLP_DEVICES_MOTORS_CORRECTION_CCONTROLMOTOR_H_

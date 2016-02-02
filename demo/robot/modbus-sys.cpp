@@ -19,10 +19,6 @@
 #include "../../utils/ctaskthread.h"
 #include "../../network/cnetwork.h"
 
-
-
-
-
 //#include "../utils/csynchro2.h"
 PCSysTask psys_task(new CSysTask());
 PCSystem  psystem(new CSystem());

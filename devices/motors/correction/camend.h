@@ -1,21 +1,22 @@
-#ifndef DLP_UTILS_CAMEND_H_
-#define DlP_UTILS_CAMEND_H_
-#include "../../../dlp/dlpdevices.h"
-
+#ifndef DLP_DEVICES_MOTORS_CORRECTION_CAMEND_H_
+#define DLP_DEVICES_MOTORS_CORRECTION_CAMEND_H_
+#include "../../../dlp/dlp.h"
 class CAmend
 {
 public:
     CAmend();
     ~CAmend();
-    void ConfigAttr(DLPAmendAttr &attr);
-    void Ready(const float &coder_angle,const long &timing_time);
-    long GetAmendTime(const float &cur_coder_angle);
-    void Reset(void);
-private:
-    float m_last_coder_angle;//startup task 's coder angle
-    long m_last_timing_time;//task timer time
-    long m_amendment_time_internal;//amend timer time
-    DLPAmendAttr m_attr;
-};
 
-#endif //DlP_UTILS_CAMEND_H_
+    /**/
+    int IsAmend();
+	int IsControl(void);
+	int IsDriver(void );
+
+	/**/
+
+private:
+    PCControlMotor m_pconnmotor;
+    PCAmendMotor   m_pamendmotor;
+    PCDriverMotor  m_pdrivermotor;
+};
+#endif // DLP_DEVICES_MOTORS_CORRECTION_CAMEND_H_

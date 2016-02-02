@@ -18,7 +18,7 @@ class CGPIO;
 class CDirection;
 class CAlgorithm;
 //class CStepMotorbyPRU;//recommend
-//class CStepMotorbyPWM;//recommend
+class CStepMotorbyPWM;//recommend
 class CStepMotor ;
 class CProximitySwitch;
 
@@ -74,8 +74,12 @@ class CTaskThread;
 
 class CSynchro2;
 class CAmend;
-class CAmendPwmMotor;
-class CPWMFeedbackControl;
+class CAmendMotor;
+class CControlMotor;
+class CDriverMotor;
+
+//class CAmendPwmMotor;
+//class CPWMFeedbackControl;
 
 class CSysPulses;
 class CDevPulses;
@@ -94,7 +98,8 @@ typedef boost::shared_ptr<CPWM> PCPWM;
 typedef boost::shared_ptr<IMotor>  PIMotor;
 //typedef boost::shared_ptr<CCustomPWM>  PCCustomPWM;//deprecated,recommend PCStepMotorbyPRU
 //typedef boost::shared_ptr<CSystemPWM>  PCSystemPWM;//deprecated,recommend PCStepMotorbyPWM
-//typedef boost::shared_ptr<CStepMotorbyPWM>  PCStepMotorbyPWM;
+typedef boost::shared_ptr<CStepMotorbyPWM>  PCStepMotorbyPWM;
+
 //typedef boost::shared_ptr<CStepMotorbyPRU>  PCStepMotorbyPRU;
 
 typedef boost::shared_ptr<CStepMotor> PCStepMotor;
@@ -153,9 +158,9 @@ typedef boost::shared_ptr<CTaskThread>  PCTaskThread;
 
 typedef boost::shared_ptr<CSynchro2> PCSynchro2;
 typedef boost::shared_ptr<CAmend> PCAmend;
-typedef boost::shared_ptr<CAmendPwmMotor> PCAmendPwmMotor;
-typedef boost::shared_ptr<CPWMFeedbackControl> PCPWMFeedbackControl;
-
+typedef boost::shared_ptr<CAmendMotor> PCAmendMotor;
+typedef boost::shared_ptr<CControlMotor> PCControlMotor;
+typedef boost::shared_ptr<CDriverMotor> PCDriverMotor;
 
 typedef boost::shared_ptr<CSysPulses> PCSysPulses;
 typedef boost::shared_ptr<CDevPulses> PCDevPulses;

@@ -891,7 +891,7 @@
 	"dlpenum.h"
 	"dlpalgorithm.h"
 
-1452579600 /home/dlp/develop/project/DLPRobot2/dlp/dlpboost.h
+1454318214 /home/dlp/develop/project/DLPRobot2/dlp/dlpboost.h
 	<boost/smart_ptr.hpp>
 
 1443597613 /home/dlp/develop/project/DLPRobot2/dlp/dlpcommand.h
@@ -971,7 +971,7 @@
 1444209419 /home/dlp/develop/project/DLPRobot2/utils/cdelay.h
 	<stdint.h>
 
-1454051049 source:/home/dlp/develop/project/DLPRobot2/demo/robot/modbus-sys.cpp
+1454292301 source:/home/dlp/develop/project/DLPRobot2/demo/robot/modbus-sys.cpp
 	"../../dlp/dlp.h"
 	"../../utils/cdelay.h"
 	"../../utils/casynchrtimer.h"
@@ -1198,13 +1198,16 @@
 	"../../dlp/dlp.h"
 	"../../drivers/cgpio.h"
 
-1451100813 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/camend.cpp
+1454320086 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/camend.cpp
 	"camend.h"
+	"camendmotor.h"
+	"ccontrolmotor.h"
+	"cdrivermotor.h"
 	<cmath>
 	<iostream>
 
-1451100808 /home/dlp/develop/project/DLPRobot2/devices/motors/correction/camend.h
-	"../../../dlp/dlpdevices.h"
+1454320086 /home/dlp/develop/project/DLPRobot2/devices/motors/correction/camend.h
+	"../../../dlp/dlp.h"
 
 1451100827 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/cpwmfeedbackcontrol.cpp
 	"pwmfeedbackcontrol.h"
@@ -1446,7 +1449,7 @@
 	"../utils/cprintattr.h"
 	"cfocuspart.h"
 
-1443084807 /home/dlp/develop/project/DLPRobot2/devices/motors/cstepmotorbypwm.h
+1454319094 /home/dlp/develop/project/DLPRobot2/devices/motors/cstepmotorbypwm.h
 	<string>
 	"imotor.h"
 	"../../dlp/dlpdevices.h"
@@ -1508,7 +1511,7 @@
 	"../network/cdata-mapping.h"
 	<sstream>
 
-1454117426 source:/home/dlp/develop/project/DLPRobot2/robot/camendpulse.cpp
+1454124658 source:/home/dlp/develop/project/DLPRobot2/robot/camendpulse.cpp
 	"camendpulse.h"
 	"../utils/cconverter.h"
 	<string.h>
@@ -1675,4 +1678,28 @@
 
 1452674916 /home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/cbeziercurve.h
 	"icurve.h"
+
+1454318283 source:/home/dlp/develop/project/DLPRobot2/devices/motors/cstepmotorbypwm.cpp
+	"cstepmotorbypwm.h"
+	"../../drivers/cpwm.h"
+
+1454317379 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/camendmotor.cpp
+	"camendmotor.h"
+
+1454317194 /home/dlp/develop/project/DLPRobot2/devices/motors/correction/camendmotor.h
+	"../../../dlp/dlpdevices.h"
+
+1454317379 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/ccontrolmotor.cpp
+	"ccontrolmotor.h"
+	<cmath>
+	<iostream>
+
+1454317194 /home/dlp/develop/project/DLPRobot2/devices/motors/correction/ccontrolmotor.h
+
+1454317379 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/cdrivermotor.cpp
+	"cdrivermotor.h"
+	<cmath>
+	<iostream>
+
+1454317194 /home/dlp/develop/project/DLPRobot2/devices/motors/correction/cdrivermotor.h
 
