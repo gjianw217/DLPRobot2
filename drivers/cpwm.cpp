@@ -15,7 +15,7 @@ CPWM::CPWM()
 CPWM::CPWM(const std::string pin_name_slot,uint32_t period,uint32_t duty)
 {
 	// std::string pinInterfacePath = PWM::GetOCPPath() + PWM::GetFullNameOfFileInDirectory(PWM::GetOCPPath(), pin_name_slot) + "/";
-	m_path="/sys/devices/ocp.3/pwm_test_"+pin_name_slot;
+	m_path="/sys/devices/ocp.2/pwm_test_"+pin_name_slot;
 	SetPath();
 
 }

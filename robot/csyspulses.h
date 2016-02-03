@@ -18,6 +18,7 @@ public:
 
 protected:
     PCPRU m_ppru;
+    PCPWM m_ppwm;
 private:
     uint32_t m_pulses[8];
     //std::map<uint8_t,uint32_t> m_motor_counter;

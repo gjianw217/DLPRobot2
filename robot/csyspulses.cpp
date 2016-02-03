@@ -1,11 +1,13 @@
 #include "csyspulses.h"
 #include <string.h>
 #include "../drivers/cpru.h"
+#include "../drivers/cpwm.h"
 #include "../utils/cdebug.h"
 /*Run the equipment of pulse*/
 CSysPulses::CSysPulses()
 {
     m_ppru=PCPRU(new CPRU("pru1"));
+    m_ppwm=PCPWM(new CPWM("P8_45.11"));
     memset(m_pulses,0,8);
 }
 
@@ -68,5 +70,9 @@ void  CSysPulses::WritePulseGroup(const uint32_t *src,const uint8_t &len)
 void CSysPulses::RunPulseGroups()
 {
     dlp_log(DLP_LOG_DEBUG," CSysPulses::RunPulseGroups()");
+    uint32_t my_period=1000000000/m_pulses[3];
+    m_ppwm->SetDuty(my_period/2);
+    m_ppwm->SetPeriod(my_period);
+    std::cout<<"Setting New Period: "<<my_period<<std::endl;
     m_ppru->Run(m_pulses);
 }

@@ -1198,7 +1198,7 @@
 	"../../dlp/dlp.h"
 	"../../drivers/cgpio.h"
 
-1454320086 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/camend.cpp
+1454385576 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/camend.cpp
 	"camend.h"
 	"camendmotor.h"
 	"ccontrolmotor.h"
@@ -1286,7 +1286,7 @@
 	"cpru.h"
 	"../utils/cdebug.h"
 
-1440057321 source:/home/dlp/develop/project/DLPRobot2/drivers/cpwm.cpp
+1454394882 source:/home/dlp/develop/project/DLPRobot2/drivers/cpwm.cpp
 	<stdio.h>
 	<stdlib.h>
 	<fcntl.h>
@@ -1544,7 +1544,7 @@
 	"../dlp/dlp.h"
 	<map>
 
-1450426939 /home/dlp/develop/project/DLPRobot2/robot/csyspulses.h
+1454380095 /home/dlp/develop/project/DLPRobot2/robot/csyspulses.h
 	"../dlp/dlp.h"
 	<map>
 
@@ -1558,10 +1558,11 @@
 	"../devices/switch/cproximityswitch.h"
 	"../utils/cdebug.h"
 
-1453885285 source:/home/dlp/develop/project/DLPRobot2/robot/csyspulses.cpp
+1454383714 source:/home/dlp/develop/project/DLPRobot2/robot/csyspulses.cpp
 	"csyspulses.h"
 	<string.h>
 	"../drivers/cpru.h"
+	"../drivers/cpwm.h"
 	"../utils/cdebug.h"
 
 1453886388 source:/home/dlp/develop/project/DLPRobot2/robot/csystem.cpp
@@ -1679,20 +1680,18 @@
 1452674916 /home/dlp/develop/project/DLPRobot2/devices/motors/algorithm/cbeziercurve.h
 	"icurve.h"
 
-1454318283 source:/home/dlp/develop/project/DLPRobot2/devices/motors/cstepmotorbypwm.cpp
+1454320316 source:/home/dlp/develop/project/DLPRobot2/devices/motors/cstepmotorbypwm.cpp
 	"cstepmotorbypwm.h"
+	"correction/camend.h"
 	"../../drivers/cpwm.h"
 
-1454317379 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/camendmotor.cpp
+1454385399 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/camendmotor.cpp
 	"camendmotor.h"
 
-1454317194 /home/dlp/develop/project/DLPRobot2/devices/motors/correction/camendmotor.h
-	"../../../dlp/dlpdevices.h"
+1454385399 /home/dlp/develop/project/DLPRobot2/devices/motors/correction/camendmotor.h
 
-1454317379 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/ccontrolmotor.cpp
+1454385541 source:/home/dlp/develop/project/DLPRobot2/devices/motors/correction/ccontrolmotor.cpp
 	"ccontrolmotor.h"
-	<cmath>
-	<iostream>
 
 1454317194 /home/dlp/develop/project/DLPRobot2/devices/motors/correction/ccontrolmotor.h
 
@@ -1701,5 +1700,5 @@
 	<cmath>
 	<iostream>
 
-1454317194 /home/dlp/develop/project/DLPRobot2/devices/motors/correction/cdrivermotor.h
+1454384755 /home/dlp/develop/project/DLPRobot2/devices/motors/correction/cdrivermotor.h
 

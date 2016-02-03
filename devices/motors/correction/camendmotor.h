@@ -1,6 +1,6 @@
 #ifndef DLP_DEVICES_MOTORS_CORRECTION_CAMENDMOTOR_H_
 #define DLP_DEVICES_MOTORS_CORRECTION_CAMENDMOTOR_H_
-#include "../../../dlp/dlpdevices.h"
+
 
 class CAmendMotor
 {

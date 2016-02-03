@@ -9,7 +9,9 @@ OBJ=cdirection.o\
    	cstepmotor.o\
 	calgorithm.o\
 	correction/camend.o\
-	correction/cpwmfeedbackcontrol.o\
+	correction/camendmotor.o\
+	correction/ccontrolmotor.o\
+	correction/cdrivermotor.o\
 	algorithm/irotation.o\
 	algorithm/ctestrotation.o\
 	algorithm/crotation360.o\
