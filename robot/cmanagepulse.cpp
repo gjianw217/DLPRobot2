@@ -120,6 +120,8 @@ void CManagePulse::UpdatePulseGroup()
                 m_pulse[i].cmd_convert_curve_enable=true;
                 m_pulse[i].angle_pulse_frame_counter=0;
                 m_pulse[i].angle_pulse_frame_sum=0;
+
+                m_pdev_pulses->ResetCounter();//let device pulses counter retrun to zero
             }
         }
 

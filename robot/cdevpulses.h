@@ -18,6 +18,7 @@ public:
 	void     WriteDevPulsesCurve(const DLPMotorPulse &type,const uint8_t &len,const uint32_t *src);
 
     void  ReadPulseGroup(uint32_t *des);
+    void ResetCounter();
 
 protected:
     int check_para(const DLPMotorPulse &type,const uint8_t pos_or_len=0);

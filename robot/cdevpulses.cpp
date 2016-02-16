@@ -69,7 +69,7 @@ void     CDevPulses::WriteDevPulsesCurve(const DLPMotorPulse &type,const uint8_t
 */
 void CDevPulses::ReadPulseGroup(uint32_t *des)
 {
-    dlp_log(DLP_LOG_DEBUG," CDevPulses::ReadPulseGroup");
+    dlp_log(DLP_LOG_DEBUG,"CDevPulses::ReadPulseGroup");
     if(des!=NULL)
     {
         if(m_dev_pulses[DLP_PULSE_PAN][m_counter]>0)//PanDevPulses=0
@@ -94,8 +94,10 @@ void CDevPulses::ReadPulseGroup(uint32_t *des)
         }
 
          m_counter++;
-
-
+    }
+    else
+    {
+        dlp_log(DLP_LOG_ERR,"CDevPulses::ReadPulseGroup ERROR ......");
     }
 
 }
@@ -116,5 +118,11 @@ int      CDevPulses::check_para(const DLPMotorPulse &type,const uint8_t pos_or_l
     }
 
 
+
+}
+
+void CDevPulses::ResetCounter()
+{
+    m_counter=0;
 
 }

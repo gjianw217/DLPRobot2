@@ -63,7 +63,7 @@ void CSystem::Init()
 }
 void CSystem::CollectSysData()
 {
-	dlp_log(DLP_LOG_DEBUG,"CSystem::CollectSysData()");
+	dlp_log(DLP_LOG_INFOS,"CSystem::CollectSysData()");
     SLock datalock(m_mutex);
 	time_t time_stamp;                                                                /*<采集数据的时间戳*/
 	uint16_t time_array[2]={0};                                                       /*<存放时间戳：低位，高位*/
@@ -201,7 +201,7 @@ void CSystem::ArmsTiltCheck()
 
 void CSystem::ControlSysMotion()//driver the step motor movement
 {
-  dlp_log(DLP_LOG_DEBUG,"CSystem::ControlSysMotion");
+  dlp_log(DLP_LOG_INFOS,"CSystem::ControlSysMotion");
    if(m_pmanage_pulse->IsPulses())
    {
 
@@ -214,7 +214,7 @@ void CSystem::ControlSysMotion()//driver the step motor movement
 
 int CSystem::AmendSysPulse()
 {
-    dlp_log(DLP_LOG_DEBUG,"CSystem::AmendSysPulse()");
+    dlp_log(DLP_LOG_INFOS,"CSystem::AmendSysPulse()");
     DLPMotorPulse workmotor[4]={DLP_PULSE_PAN,DLP_PULSE_TILT,DLP_PULSE_ZOOM,DLP_PULSE_FOCUS}; /*<The current work of motor*/
     DLPMotorPulse amendmark[4]={DLP_PULSE_NO,DLP_PULSE_NO,DLP_PULSE_NO,DLP_PULSE_NO};         /*<Need to modify the motor*/
     uint16_t pamend_data[6]={0};
@@ -259,7 +259,7 @@ int CSystem::AmendSysPulse()
 void CSystem::ConvertSysPulse()
 {
 #ifdef DLP_DEBUG
-    std::cout<<"[msg] CSystem::ConvertSysPulse()"<<std::endl;
+    dlp_log(DLP_LOG_INFOS,"CSystem::ConvertSysPulse()");
     std::cout<<"[msg] convert enable(1) "<<m_pmanage_pulse->IsConvert(DLP_PULSE_PAN)<<std::endl;
     std::cout<<"[msg] command counter "<<m_ppan_motor->ReadCmdSize()<<std::endl;
 #endif // DLP_DEBUG

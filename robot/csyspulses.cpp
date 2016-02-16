@@ -70,9 +70,15 @@ void  CSysPulses::WritePulseGroup(const uint32_t *src,const uint8_t &len)
 void CSysPulses::RunPulseGroups()
 {
     dlp_log(DLP_LOG_DEBUG," CSysPulses::RunPulseGroups()");
+    if(!m_pulses[3]) return;
     uint32_t my_period=1000000000/m_pulses[3];
+    std::cout<<"Setting New Period: "
+             <<"pulse num: "<<m_pulses[3]
+             <<"period:    "<<my_period
+             <<std::endl;
+
     m_ppwm->SetDuty(my_period/2);
     m_ppwm->SetPeriod(my_period);
-    std::cout<<"Setting New Period: "<<my_period<<std::endl;
+
     m_ppru->Run(m_pulses);
 }
