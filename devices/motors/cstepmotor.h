@@ -12,7 +12,7 @@ public:
     /***/
     virtual void WriteCmd( DLPModbusCmd &cmd);
     virtual void CmdConvertPulses();
-    virtual int ReadPulses(uint32_t *des);
+    virtual uint16_t ReadPulses(uint32_t *des);
     virtual int ReadCmdSize();
     virtual void SetCmdAmendPulses(uint16_t *pdata);
     /***/

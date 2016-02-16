@@ -14,8 +14,8 @@ public:
 
 	int ReadDevPulse(const DLPMotorPulse &type,const uint8_t &pos);
 	void     WriteDevPulse(const DLPMotorPulse &type,const uint8_t &pos,const uint32_t &value);
-	void     ReadDevPulsesCurve(const DLPMotorPulse &type,const uint8_t &len,uint32_t *des);
-	void     WriteDevPulsesCurve(const DLPMotorPulse &type,const uint8_t &len,const uint32_t *src);
+	void     ReadDevPulsesCurve(const DLPMotorPulse &type,const uint16_t &len,uint32_t *des);
+	void     WriteDevPulsesCurve(const DLPMotorPulse &type,const uint16_t &len,const uint32_t *src);
 
     void  ReadPulseGroup(uint32_t *des);
     void ResetCounter();

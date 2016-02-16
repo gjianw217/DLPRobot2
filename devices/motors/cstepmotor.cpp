@@ -102,7 +102,7 @@ void CStepMotor::CmdConvertPulses()
 * @param  storing the addresses of pulse
 * @return the group number of the pulse
 */
-int CStepMotor::ReadPulses(uint32_t *des)
+uint16_t CStepMotor::ReadPulses(uint32_t *des)
 {
     dlp_log(DLP_LOG_DEBUG,"CStepMotor::ReadPulses");
 
@@ -114,6 +114,7 @@ int CStepMotor::ReadPulses(uint32_t *des)
 
         }
     }
+
     return m_pwm_array[0];
 }
 

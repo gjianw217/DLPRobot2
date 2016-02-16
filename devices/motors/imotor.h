@@ -28,7 +28,7 @@ public:
     virtual int ReadCmdSize()=0;
     virtual void WriteCmd( DLPModbusCmd &cmd)=0;;
     virtual void CmdConvertPulses()=0;;
-    virtual int ReadPulses(uint32_t *des)=0;;
+    virtual uint16_t ReadPulses(uint32_t *des)=0;;
     virtual void SetCmdAmendPulses(uint16_t *pdata)=0;
     /***/
 	virtual void RunByTime(const double &time,const double &angle,const uint16_t &dir=0)=0;

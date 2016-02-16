@@ -26,7 +26,7 @@ public:
 	void SetAmendParameter(const DLPMotorPulse &type,uint16_t *time_angle);
     void UpdateCurveAngle(const DLPMotorPulse &type,const float &coder_angle);
 	//CDevPulses
-	void UpdateCurvePulse(const DLPMotorPulse &type,const uint8_t &len,const uint32_t *src);  //convert the angle into pulse according to the curve type
+	void UpdateCurvePulse(const DLPMotorPulse &type,const uint16_t &len,const uint32_t *src);  //convert the angle into pulse according to the curve type
 
 	//CSysPulses
 	void RunPulseGroup();      //run the step motor

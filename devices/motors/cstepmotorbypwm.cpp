@@ -32,7 +32,7 @@ void CStepMotorbyPWM::CmdConvertPulses()
 
 }
 
-int CStepMotorbyPWM::ReadPulses(uint32_t *des)
+uint16_t CStepMotorbyPWM::ReadPulses(uint32_t *des)
 {
 
 }

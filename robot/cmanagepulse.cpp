@@ -55,7 +55,7 @@ int CManagePulse::IsConvert(const DLPMotorPulse &type)
 * @brief Save the curve pulse to the current management class
 *
 */
-void CManagePulse::UpdateCurvePulse(const DLPMotorPulse &type,const uint8_t &len,const uint32_t *src)
+void CManagePulse::UpdateCurvePulse(const DLPMotorPulse &type,const uint16_t &len,const uint32_t *src)
 {
     dlp_log(DLP_LOG_DEBUG,"CCManagePulse::UpdateCurvePulse");
     m_pdev_pulses->WriteDevPulsesCurve(type,len,src);
@@ -121,7 +121,7 @@ void CManagePulse::UpdatePulseGroup()
                 m_pulse[i].angle_pulse_frame_counter=0;
                 m_pulse[i].angle_pulse_frame_sum=0;
 
-                m_pdev_pulses->ResetCounter();//let device pulses counter retrun to zero
+                m_pdev_pulses->ResetCounter();//let device pulses counter retrun to zero at 20160216 fixing
             }
         }
 

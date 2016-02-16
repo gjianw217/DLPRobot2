@@ -29,7 +29,7 @@ void     CDevPulses::WriteDevPulse(const DLPMotorPulse &type,const uint8_t &pos,
    }
 }
 
-void     CDevPulses::ReadDevPulsesCurve(const DLPMotorPulse &type,const uint8_t &len,uint32_t *des)
+void     CDevPulses::ReadDevPulsesCurve(const DLPMotorPulse &type,const uint16_t &len,uint32_t *des)
 {
     dlp_log(DLP_LOG_DEBUG," CDevPulses::ReadDevPulsesCurve");
     if(check_para(type,len))
@@ -44,10 +44,9 @@ void     CDevPulses::ReadDevPulsesCurve(const DLPMotorPulse &type,const uint8_t 
     }
 }
 
-void     CDevPulses::WriteDevPulsesCurve(const DLPMotorPulse &type,const uint8_t &len,const uint32_t *src)
+void     CDevPulses::WriteDevPulsesCurve(const DLPMotorPulse &type,const uint16_t &len,const uint32_t *src)
 {
     dlp_log(DLP_LOG_DEBUG," CDevPulses::WriteDevPulsesCurve");
-
     if(check_para(type,len))
     {
         int i,j;

@@ -67,7 +67,7 @@ private:
 private:
 	uint16_t m_data[5];//save the coder value respectively
     //uint32_t m_pulses[DLP_PULSE_MAX_FRAME];
-    uint32_t m_len;
+    uint16_t m_len;
 
 };
 #endif // DLP_ROBOT_CSYSTEM_H_

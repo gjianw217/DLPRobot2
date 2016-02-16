@@ -70,12 +70,23 @@ void  CSysPulses::WritePulseGroup(const uint32_t *src,const uint8_t &len)
 void CSysPulses::RunPulseGroups()
 {
     dlp_log(DLP_LOG_DEBUG," CSysPulses::RunPulseGroups()");
-    if(!m_pulses[3]) return;
+    if(!m_pulses[3])
+    {
+
+        dlp_log(DLP_LOG_ERR,"Please the program:");
+        dlp_log(DLP_LOG_ERR,"Floating point exception");
+        return;
+    }
     uint32_t my_period=1000000000/m_pulses[3];
+    #ifdef DLP_DEBUG
+
     std::cout<<"Setting New Period: "
              <<"pulse num: "<<m_pulses[3]
              <<"period:    "<<my_period
              <<std::endl;
+
+    #endif // DLP_DEBUG
+
 
     m_ppwm->SetDuty(my_period/2);
     m_ppwm->SetPeriod(my_period);
