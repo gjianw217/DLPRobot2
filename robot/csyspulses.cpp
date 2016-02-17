@@ -77,7 +77,7 @@ void CSysPulses::RunPulseGroups()
         dlp_log(DLP_LOG_ERR,"Floating point exception");
         return;
     }
-    uint32_t my_period=1000000000/m_pulses[3];
+    uint32_t my_period=20000000/m_pulses[3];//T_frame=N x T_pulse
     #ifdef DLP_DEBUG
 
     std::cout<<"Setting New Period: "
@@ -88,8 +88,9 @@ void CSysPulses::RunPulseGroups()
     #endif // DLP_DEBUG
 
 
-    m_ppwm->SetDuty(my_period/2);
+    m_ppwm->SetDuty(0);//guarantee period greater than duty
     m_ppwm->SetPeriod(my_period);
+    m_ppwm->SetDuty(my_period/2);
 
     m_ppru->Run(m_pulses);
 }
