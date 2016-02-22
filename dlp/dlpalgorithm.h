@@ -14,8 +14,8 @@
 //0.02(0.021974) resolution of the encoder that 360/(pow(2,coder_bits)-1);
 //16 The number of pulses that encoder rotates a step
 #define DLP_MAX_AMEND_ERROR (1/0.02*16)
-//0.02
-#define DLP_MAX_AMEND_INTERNAL (2)
+
+#define DLP_MAX_AMEND_INTERNAL (100)
 
 
 

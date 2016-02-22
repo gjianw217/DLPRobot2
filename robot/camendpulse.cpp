@@ -1,8 +1,7 @@
 #include "camendpulse.h"
 #include "../utils/cconverter.h"
 #include <string.h>
-#include <cmath>
-
+#include <cmath>        // std::abs
 CAmendPulse::CAmendPulse()
 {
     memset(m_pulse_counter,0,4);
@@ -57,6 +56,9 @@ void CAmendPulse::SetDevCurvePulse(const DLPMotorPulse &type,const uint8_t &len,
         m_dev_pulses[type][i]=src[i];
     }
 
+    //reset or clear
+//    memset(m_pulse_counter,0,4);
+//    memset(m_frame_counter,0,4);
 
 }
 
@@ -76,17 +78,19 @@ int CAmendPulse::IsAmend(const DLPMotorPulse &type,const float &coder_angle)
 {
 
     if(DLP_PULSE_NO<type&&type<DLP_PULSE_MAX
-        &&(m_frame_counter>0)
+        &&(m_frame_counter[type]>0)
         &&(m_frame_counter[type]%DLP_MAX_AMEND_INTERNAL==0))
     {
 
         uint16_t real_value=Angle2Pulses(type,coder_angle);
         uint32_t theory_value=Frames2Pulses(type);
 
-        int16_t difference_value=GetAmendError(real_value,theory_value);;
-        printf("real %d,theory %d,diff %d\n",real_value,theory_value,difference_value);
+        int16_t difference_value=GetAmendError(theory_value,real_value);;
+        #ifdef DLP_DEBUG
+         printf("real %d,theory %d,diff %d\n",real_value,theory_value,difference_value);
+        #endif // DLP_DEBUG
 
-        if(difference_value>DLP_MAX_AMEND_ERROR)
+        if(abs(difference_value)>DLP_MAX_AMEND_ERROR)
         {
             ComputeAmendTime(type,difference_value);
             ComputeAmendAngle(type,difference_value);
@@ -129,14 +133,14 @@ uint32_t CAmendPulse::Angle2Pulses(const DLPMotorPulse &type,const float &coder_
     float diff_angle=0.0;
     if(type>DLP_PULSE_NO&&type<DLP_PULSE_MAX)
     {
-        diff_angle=coder_angle-m_init_angle[type];
+        diff_angle=abs(coder_angle-m_init_angle[type]);
         std::cout<<"diff"<<diff_angle<<std::endl;
         //Method 1
         pulses=static_cast<uint32_t>(diff_angle/m_amend_attr[type].coder_unit_angle*m_amend_attr[type].coder_unit_pulse);
-        std::cout<<"pulses"<<pulses<<std::endl;
+        std::cout<<"method 1 pulses"<<pulses<<std::endl;
         //Method 2
         pulses=static_cast<uint32_t>(diff_angle/m_amend_attr[type].coder_gear_rate*m_amend_attr[type].motor_gear_rate)/m_amend_attr[type].step_angle;
-        std::cout<<"pulses"<<pulses<<std::endl;
+        std::cout<<"method 2 pulses"<<pulses<<std::endl;
     }
 
     return pulses;
@@ -176,7 +180,7 @@ int32_t CAmendPulse::GetAmendError(const uint32_t &theory_pulses,const uint32_t 
 *
 *
 */
-void CAmendPulse::ComputeAmendTime(const DLPMotorPulse &type,const int16_t &amend_error)
+void CAmendPulse::ComputeAmendTime(const DLPMotorPulse &type,const int32_t &amend_error)
 {
     uint32_t sum_time,amend_time;
     if(type>DLP_PULSE_NO&&type<DLP_PULSE_MAX)
@@ -195,7 +199,7 @@ void CAmendPulse::ComputeAmendTime(const DLPMotorPulse &type,const int16_t &amen
 *
 *
 */
-void CAmendPulse::ComputeAmendAngle(const DLPMotorPulse &type,const int16_t &amend_error)
+void CAmendPulse::ComputeAmendAngle(const DLPMotorPulse &type,const int32_t &amend_error)
 {
     uint32_t sum_angle;//////////////////////////////////////////////////////////
     uint32_t sum_pulses=0;
@@ -227,10 +231,11 @@ void CAmendPulse::GetAmendParameter(const DLPMotorPulse &type,uint16_t *pcoder_d
 {
     if(type>DLP_PULSE_NO&&type<DLP_PULSE_MAX)
     {
-        pcoder_data[0]=m_amend_angle[type][0];
-        pcoder_data[1]=m_amend_angle[type][1];
-        pcoder_data[2]=m_amend_time[type][0];
-        pcoder_data[3]=m_amend_time[type][1];
+        pcoder_data[0]=                        //direction
+        pcoder_data[1]=m_amend_angle[type][0]; //decimal part
+        pcoder_data[2]=m_amend_angle[type][1]; //integer part
+        pcoder_data[3]=m_amend_time[type][0];  //milliseconds component
+        pcoder_data[4]=m_amend_time[type][1];  //seconds component
     }
 
 

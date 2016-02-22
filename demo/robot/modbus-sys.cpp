@@ -34,8 +34,9 @@ void SyncHandler(int signum)
     std::cout<<"------------------------------------------------------------------------------------------------------"<<std::endl;
     psystem->CollectSysData();
     psystem->ConvertSysPulse();
-//    psystem->AmendSysPulse();
+    psystem->AmendSysPulse();
     psystem->ControlSysMotion();
+
 
     //update the drivers pulses at the frame
    /// pdev_pulses->ReadDevPulsesCurve(const DLPDevPulse &type,const uint8_t len,uint32_t *des)

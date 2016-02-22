@@ -26,8 +26,8 @@ class CAmendPulse
     uint32_t Angle2Pulses(const DLPMotorPulse &type,const float &coder_angle);
     int32_t GetAmendError(const uint32_t &theory_pulses,const uint32_t &real_pulses);
     //Amend the Angle
-    void ComputeAmendTime(const DLPMotorPulse &type,const int16_t &amend_error);//not implement
-    void ComputeAmendAngle(const DLPMotorPulse &type,const int16_t &amend_error);
+    void ComputeAmendTime(const DLPMotorPulse &type,const int32_t &amend_error);//not implement
+    void ComputeAmendAngle(const DLPMotorPulse &type,const int32_t &amend_error);
     void GetAmendParameter(const DLPMotorPulse &type,uint16_t *pcoder_data);
 
 private:
